@@ -5,6 +5,7 @@
   <div>
     <TestCompositionApi></TestCompositionApi>
     <TestOptionApi></TestOptionApi>
+    <ComputeAttribute></ComputeAttribute>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import AppCounter from './components/AppCounter.vue'
 
 import TestCompositionApi from './components/TestCompositionApi.vue';
 import TestOptionApi from './components/TestOptionApi.vue';
+import ComputeAttribute from './components/ComputeAttribute.vue';
 
 export default {
   name: 'App',
@@ -23,6 +25,7 @@ export default {
     AppCounter,
     TestCompositionApi,
     TestOptionApi,
+    ComputeAttribute,
   }
 }
 </script>
