@@ -1,31 +1,36 @@
+<!-- eslint-disable vue/no-unused-components -->
 
 <template>
-  <AppCounter></AppCounter>
+  <!-- <AppCounter></AppCounter> -->
 
   <div>
-    <TestCompositionApi></TestCompositionApi>
+    <!-- <TestCompositionApi></TestCompositionApi>
     <TestOptionApi></TestOptionApi>
-    <ComputeAttribute></ComputeAttribute>
+    <ComputeAttribute></ComputeAttribute> -->
+  </div>
+  <div>
+    <ClassStyleBind></ClassStyleBind>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
 // eslint-disable-next-line
 import AppCounter from './components/AppCounter.vue'
 
 import TestCompositionApi from './components/TestCompositionApi.vue';
 import TestOptionApi from './components/TestOptionApi.vue';
 import ComputeAttribute from './components/ComputeAttribute.vue';
+import ClassStyleBind from './components/ClassStyleBind.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     AppCounter,
     TestCompositionApi,
     TestOptionApi,
     ComputeAttribute,
+    ClassStyleBind,
   }
 }
 </script>
