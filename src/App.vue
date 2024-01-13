@@ -1,15 +1,18 @@
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <AppCounter></AppCounter>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+// eslint-disable-next-line
+import AppCounter from './components/AppCounter.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    AppCounter
   }
 }
 </script>
