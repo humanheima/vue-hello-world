@@ -8,9 +8,16 @@
     <TestOptionApi></TestOptionApi>
     <ComputeAttribute></ComputeAttribute> -->
   </div>
-  <div>
+  <!-- <div>
     <ClassStyleBind></ClassStyleBind>
-  </div>
+  </div> -->
+  <!-- <div>
+    <ConditionRender></ConditionRender>
+  </div> -->
+
+<div>
+  <ListRender></ListRender>
+</div>
 </template>
 
 <script>
@@ -22,6 +29,8 @@ import TestCompositionApi from './components/TestCompositionApi.vue';
 import TestOptionApi from './components/TestOptionApi.vue';
 import ComputeAttribute from './components/ComputeAttribute.vue';
 import ClassStyleBind from './components/ClassStyleBind.vue';
+import ConditionRender from './components/ConditionRender.vue';
+import ListRender from './components/ListRender.vue';
 
 export default {
   name: 'App',
@@ -31,6 +40,8 @@ export default {
     TestOptionApi,
     ComputeAttribute,
     ClassStyleBind,
+    ConditionRender,
+    ListRender,
   }
 }
 </script>
