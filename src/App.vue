@@ -15,9 +15,15 @@
     <ConditionRender></ConditionRender>
   </div> -->
 
-<div>
+  <!-- <div>
   <ListRender></ListRender>
-</div>
+</div> -->
+
+
+  <div>
+    <EventHandle></EventHandle>
+  </div>
+  
 </template>
 
 <script>
@@ -31,6 +37,7 @@ import ComputeAttribute from './components/ComputeAttribute.vue';
 import ClassStyleBind from './components/ClassStyleBind.vue';
 import ConditionRender from './components/ConditionRender.vue';
 import ListRender from './components/ListRender.vue';
+import EventHandle from './components/EventHandle.vue';
 
 export default {
   name: 'App',
@@ -42,6 +49,7 @@ export default {
     ClassStyleBind,
     ConditionRender,
     ListRender,
+    EventHandle,
   }
 }
 </script>
