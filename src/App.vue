@@ -24,10 +24,15 @@
     <EventHandle></EventHandle>
   </div> -->
 
-  <div>
+  <!-- <div>
     <FormInputBind></FormInputBind>
+  </div> -->
+
+  <div>
+    <LifeCycle></LifeCycle>
   </div>
 </template>
+
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
@@ -42,6 +47,7 @@ import ConditionRender from './components/ConditionRender.vue';
 import ListRender from './components/ListRender.vue';
 import EventHandle from './components/EventHandle.vue';
 import FormInputBind from './components/FormInputBind.vue';
+import LifeCycle from './components/LifeCycle.vue';
 
 export default {
   name: 'App',
@@ -55,6 +61,7 @@ export default {
     ListRender,
     EventHandle,
     FormInputBind,
+    LifeCycle,
   }
 }
 </script>
