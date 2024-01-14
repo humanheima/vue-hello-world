@@ -2,9 +2,10 @@
 
 import ChildComponentBase from './ChildComponentBase.vue';
 import BlogPost from './BlogPost.vue';
+import PropValidTest from './PropValidTest.vue';
 
 export default {
-    components: { ChildComponentBase, BlogPost },
+    components: { ChildComponentBase, BlogPost, PropValidTest },
 
     data() {
         return {
@@ -15,7 +16,21 @@ export default {
                 { id: 3, title: 'Why Vue is so fun', content: 'This is why Vue is so fun', likes: 30 },
             ],
             postFontSize: 1,
-        };
+
+            validData: {
+                title: 'My journey with Vue',
+                content: 'This is my journey with Vue',
+                likes: 10,
+                propE: {
+                    message: 'hello world'
+                },
+                propF: 'success',
+                propG: function() {
+                    return 'haha function'
+                },
+
+            },
+        }
     },
     methods: {
         increment() {
@@ -37,12 +52,35 @@ export default {
     </div>
     <hr>
     <div v-bind:style="{ fontSize: postFontSize + 'em' }">
-        <h2>测试传递 props</h2>
-        <BlogPost title="My journey with Vue" content="This is my journey with Vue" likes="10"></BlogPost>
-        <BlogPost title="Blogging with Vue" content="This is my blogging with Vue" likes="20"></BlogPost>
-        <span>使用v-for构建BlogPost</span>
+        <h3>测试传递 props</h3>
+        <BlogPost title="My journey with Vue" content="This is my journey with Vue" likes="xx"
+            @enlarge-text="postFontSize += 0.1"></BlogPost>
+        <BlogPost title="Blogging with Vue" content="This is my blogging with Vue" likes="20"
+            @enlarge-text="postFontSize += 0.1"></BlogPost>
 
-        <BlogPost v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title" v-bind:content="post.content"
-            v-bind:likes="post.likes" @enlarge-text="postFontSize += 0.1"></BlogPost>
+        <div>
+            <span>使用v-for构建BlogPost</span>
+
+            <BlogPost v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title" v-bind:content="post.content"
+                v-bind:likes="post.likes" @enlarge-text="postFontSize += 0.1"></BlogPost>
+
+        </div>
+
+        <hr>
+        <div>
+            <span>使用一个对象绑定多个 prop，和上面的使用v-for构建BlogPost 是等价的</span>
+
+            <BlogPost v-for="post in posts" v-bind="post" @enlarge-text="postFontSize += 0.1"></BlogPost>
+
+        </div>
+
+    </div>
+
+    <hr>
+    <div>
+        <span>测试 props 验证</span>
+
+        <PropValidTest v-bind="validData"></PropValidTest>
+
     </div>
 </template>

@@ -55,7 +55,7 @@
   </div> -->
 
   <div>
-    <DynamicComponentTest></DynamicComponentTest>
+    <ComponentBase></ComponentBase>
   </div>
 </template>
 
