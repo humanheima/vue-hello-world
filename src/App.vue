@@ -28,9 +28,14 @@
     <FormInputBind></FormInputBind>
   </div> -->
 
-  <div>
+  <!-- <div>
     <LifeCycle></LifeCycle>
+  </div> -->
+
+  <div>
+    <Watcher></Watcher>
   </div>
+
 </template>
 
 
@@ -48,6 +53,7 @@ import ListRender from './components/ListRender.vue';
 import EventHandle from './components/EventHandle.vue';
 import FormInputBind from './components/FormInputBind.vue';
 import LifeCycle from './components/LifeCycle.vue';
+import Watcher from './components/Watcher.vue';
 
 export default {
   name: 'App',
@@ -62,6 +68,7 @@ export default {
     EventHandle,
     FormInputBind,
     LifeCycle,
+    Watcher,
   }
 }
 </script>
