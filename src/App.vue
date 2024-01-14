@@ -32,10 +32,13 @@
     <LifeCycle></LifeCycle>
   </div> -->
 
-  <div>
+  <!-- <div>
     <Watcher></Watcher>
-  </div>
+  </div> -->
 
+  <div>
+    <TemplateReference></TemplateReference>
+  </div>
 </template>
 
 
@@ -54,6 +57,7 @@ import EventHandle from './components/EventHandle.vue';
 import FormInputBind from './components/FormInputBind.vue';
 import LifeCycle from './components/LifeCycle.vue';
 import Watcher from './components/Watcher.vue';
+import TemplateReference from './components/TemplateReference.vue';
 
 export default {
   name: 'App',
@@ -69,6 +73,7 @@ export default {
     FormInputBind,
     LifeCycle,
     Watcher,
+    TemplateReference,
   }
 }
 </script>
