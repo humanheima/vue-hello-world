@@ -36,8 +36,26 @@
     <Watcher></Watcher>
   </div> -->
 
-  <div>
+  <!-- <div>
     <TemplateReference></TemplateReference>
+  </div> -->
+
+  <!-- <div>
+    <ComponentBase></ComponentBase>
+
+  </div> -->
+
+  <!-- <div>
+
+    <AlertBoxSlotTest>
+      Something bad happened.
+      <p>Something bad happened.</p>
+    </AlertBoxSlotTest>
+
+  </div> -->
+
+  <div>
+    <DynamicComponentTest></DynamicComponentTest>
   </div>
 </template>
 
@@ -58,6 +76,10 @@ import FormInputBind from './components/FormInputBind.vue';
 import LifeCycle from './components/LifeCycle.vue';
 import Watcher from './components/Watcher.vue';
 import TemplateReference from './components/TemplateReference.vue';
+import ComponentBase from './components/ComponentBase.vue';
+import ChildComponentBase from './components/ChildComponentBase.vue';
+import AlertBoxSlotTest from './components/AlertBoxSlotTest.vue';
+import DynamicComponentTest from './components/DynamicComponentTest.vue';
 
 export default {
   name: 'App',
@@ -74,6 +96,10 @@ export default {
     LifeCycle,
     Watcher,
     TemplateReference,
+    ComponentBase,
+    ChildComponentBase,
+    AlertBoxSlotTest,
+    DynamicComponentTest,
   }
 }
 </script>
