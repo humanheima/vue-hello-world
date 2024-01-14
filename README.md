@@ -1,5 +1,8 @@
 # vue-hello-world
 
+使用的vue版本 3x
+使用的node版本 20.10.0
+
 ## Project setup
 ```
 npm install
