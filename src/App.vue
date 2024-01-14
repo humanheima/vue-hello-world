@@ -20,10 +20,13 @@
 </div> -->
 
 
-  <div>
+  <!-- <div>
     <EventHandle></EventHandle>
+  </div> -->
+
+  <div>
+    <FormInputBind></FormInputBind>
   </div>
-  
 </template>
 
 <script>
@@ -38,6 +41,7 @@ import ClassStyleBind from './components/ClassStyleBind.vue';
 import ConditionRender from './components/ConditionRender.vue';
 import ListRender from './components/ListRender.vue';
 import EventHandle from './components/EventHandle.vue';
+import FormInputBind from './components/FormInputBind.vue';
 
 export default {
   name: 'App',
@@ -50,6 +54,7 @@ export default {
     ConditionRender,
     ListRender,
     EventHandle,
+    FormInputBind,
   }
 }
 </script>
