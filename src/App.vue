@@ -58,8 +58,17 @@
     <ComponentBase></ComponentBase>
   </div> -->
 
-  <div>
+  <!-- <div>
     <EventCustom @custom_devent="handleCustomEvent"></EventCustom>
+  </div> -->
+
+  <div>
+
+    <!-- <VmodelComponent v-model:model-value="message" v-model:model-value2="name">
+    </VmodelComponent> -->
+
+    <CapitalizeComponent v-model.modelValue.capitalize="myText"></CapitalizeComponent>
+
   </div>
 </template>
 
@@ -85,9 +94,20 @@ import ChildComponentBase from './components/ChildComponentBase.vue';
 import AlertBoxSlotTest from './components/AlertBoxSlotTest.vue';
 import DynamicComponentTest from './components/DynamicComponentTest.vue';
 import EventCustom from './components/EventCustom.vue';
+import VmodelComponent from './components/VmodelComponent.vue';
+import CapitalizeComponent from './CapitalizeComponent.vue';
 
 export default {
   name: 'App',
+
+  data() {
+    return {
+      message: 'hello Vue.js!',
+      name: '组件另一种实现v-model的方式',
+      myText: '',
+    }
+  },
+
   components: {
     AppCounter,
     TestCompositionApi,
@@ -106,6 +126,8 @@ export default {
     AlertBoxSlotTest,
     DynamicComponentTest,
     EventCustom,
+    VmodelComponent,
+    CapitalizeComponent,
   },
   methods: {
     handleCustomEvent(message) {
