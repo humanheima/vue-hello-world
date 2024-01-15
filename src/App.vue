@@ -54,8 +54,12 @@
 
   </div> -->
 
-  <div>
+  <!-- <div>
     <ComponentBase></ComponentBase>
+  </div> -->
+
+  <div>
+    <EventCustom @custom_devent="handleCustomEvent"></EventCustom>
   </div>
 </template>
 
@@ -80,6 +84,7 @@ import ComponentBase from './components/ComponentBase.vue';
 import ChildComponentBase from './components/ChildComponentBase.vue';
 import AlertBoxSlotTest from './components/AlertBoxSlotTest.vue';
 import DynamicComponentTest from './components/DynamicComponentTest.vue';
+import EventCustom from './components/EventCustom.vue';
 
 export default {
   name: 'App',
@@ -100,9 +105,17 @@ export default {
     ChildComponentBase,
     AlertBoxSlotTest,
     DynamicComponentTest,
+    EventCustom,
+  },
+  methods: {
+    handleCustomEvent(message) {
+      console.log(message) // 输出 'hello world'
+      alert("收到自定义事件:" + message)
+    }
   }
 }
 </script>
+
 
 <style>
 #app {
