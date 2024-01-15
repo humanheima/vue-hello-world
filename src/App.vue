@@ -67,8 +67,14 @@
     <!-- <VmodelComponent v-model:model-value="message" v-model:model-value2="name">
     </VmodelComponent> -->
 
-    <CapitalizeComponent v-model.modelValue.capitalize="myText"></CapitalizeComponent>
+    <!-- <CapitalizeComponent v-model.modelValue.capitalize="myText"></CapitalizeComponent> -->
 
+    <!-- <AttributeComponent class="btn_class_one" @click="parentClick"></AttributeComponent> -->
+  </div>
+
+  <div>
+
+    <AttributeOutComponent class="btn_class_one" @click="parentClick"></AttributeOutComponent>
   </div>
 </template>
 
@@ -96,6 +102,8 @@ import DynamicComponentTest from './components/DynamicComponentTest.vue';
 import EventCustom from './components/EventCustom.vue';
 import VmodelComponent from './components/VmodelComponent.vue';
 import CapitalizeComponent from './CapitalizeComponent.vue';
+import AttributeComponent from './components/AttributeComponent.vue';
+import AttributeOutComponent from './components/AttributeOutComponent.vue';
 
 export default {
   name: 'App',
@@ -128,11 +136,17 @@ export default {
     EventCustom,
     VmodelComponent,
     CapitalizeComponent,
+    AttributeComponent,
+    AttributeOutComponent,
   },
   methods: {
     handleCustomEvent(message) {
       console.log(message) // 输出 'hello world'
       alert("收到自定义事件:" + message)
+    },
+
+    parentClick() {
+      alert('parentClick')
     }
   }
 }
@@ -147,5 +161,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.btn_class_one {
+
+  background-color: royalblue;
 }
 </style>
