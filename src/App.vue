@@ -74,7 +74,74 @@
 
   <div>
 
-    <AttributeOutComponent class="btn_class_one" @click="parentClick"></AttributeOutComponent>
+    <!-- <AttributeOutComponent class="btn_class_one" @click="parentClick"></AttributeOutComponent> -->
+
+  </div>
+
+  <div>
+
+    <SlotTest>
+      <span>父组件的 message = {{ message }}</span>
+
+      <hr />
+
+      <span style="color:red">Click me!</span>
+
+      <AppCounter></AppCounter>
+    </SlotTest>
+  </div>
+
+  <div>
+    <span>具名插槽</span>
+    <br />
+    <NamedSlotTest>
+      <template v-slot:header>
+        <h1>Here might be a page title</h1>
+      </template>
+
+      <template v-slot:default>
+        <p>A paragraph for the main content.</p>
+        <p>And another one.</p>
+      </template>
+
+      <!-- v-slot:footer 可以简写为 #footer -->
+      <template v-slot:footer>
+        <p>footer Here's some contact info</p>
+      </template>
+    </NamedSlotTest>
+  </div>
+
+
+  <div>
+    <span>作用域插槽</span>
+    <br />
+    <ScopedSlotTest>
+      <template v-slot:header="headProps">
+        <h1>{{ headProps.text }}</h1>
+      </template>
+      <template v-slot:default="slotProps">
+        <p>{{ slotProps.text }}</p>
+        <p>{{ slotProps.count }}</p>
+      </template>
+    </ScopedSlotTest>
+
+  </div>
+
+  <div>
+
+    <div>
+      你可能想问什么样的场景才适合用到作用域插槽，这里我们来看一个 FancyList 组件的例子。
+    </div>
+    <FancyList api-url="url" :per-page="10">
+      <!-- 等价于 v-slot:item -->
+      <template #item="{ body, username, likes }">
+        <div>
+          <p>{{ body }}</p>
+          <p class="meta">by {{ username }} | {{ likes }} likes</p>
+        </div>
+      </template>
+    </FancyList>
+
   </div>
 </template>
 
@@ -104,6 +171,10 @@ import VmodelComponent from './components/VmodelComponent.vue';
 import CapitalizeComponent from './CapitalizeComponent.vue';
 import AttributeComponent from './components/AttributeComponent.vue';
 import AttributeOutComponent from './components/AttributeOutComponent.vue';
+import SlotTest from './components/SlotTest.vue';
+import NamedSlotTest from './components/NamedSlotTest.vue';
+import ScopedSlotTest from './components/ScopedSlotTest.vue';
+import FancyList from './components/FancyList.vue';
 
 export default {
   name: 'App',
@@ -138,6 +209,10 @@ export default {
     CapitalizeComponent,
     AttributeComponent,
     AttributeOutComponent,
+    SlotTest,
+    NamedSlotTest,
+    ScopedSlotTest,
+    FancyList,
   },
   methods: {
     handleCustomEvent(message) {
@@ -166,5 +241,10 @@ export default {
 .btn_class_one {
 
   background-color: royalblue;
+}
+
+.meta {
+  font-size: 0.8em;
+  color: #42b883;
 }
 </style>

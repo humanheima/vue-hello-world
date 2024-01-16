@@ -13,6 +13,28 @@ Props 是父组件向子组件传递数据的一种方式。子组件需要显�
 Attributes 是 HTML 元素的标准特性，例如 id、class、style 等。在 Vue 中，如果你在一个组件上使用了非 prop 特性（即没有在子组件的 props 选项中定义的特性），它们会被添加到组件的根元素上。
 
 
+
+### 插槽
+
+![slot](slot.png)
+![named_slot](named_slot.png)
+![slot_scope](slot_scope.png)
+
+[Vue3 深入组件插槽](https://cn.vuejs.org/guide/components/slots.html)
+
+组件能够接收任意类型的 JavaScript 值作为 props，但组件要如何接收模板内容呢？在某些场景中，我们可能想要为子组件传递一些模板片段，让子组件在它们的组件中渲染这些片段。
+`<slot>` 元素是一个插槽出口 `(slot outlet)`，标示了父元素提供的插槽内容 `(slot content)` 将在哪里被渲染。
+
+
+* 作用域插槽
+
+插槽的内容无法访问到子组件的状态。然而在某些场景下插槽的内容可能想要同时使用父组件域内和子组件域内的数据。要做到这一点，我们需要一种方法来让子组件在渲染时将一部分数据提供给插槽。
+
+
+
+
+    
+
 ## Project setup
 ```
 npm install
