@@ -78,7 +78,7 @@
 
   </div>
 
-  <div>
+  <!-- <div>
 
     <SlotTest>
       <span>父组件的 message = {{ message }}</span>
@@ -89,9 +89,9 @@
 
       <AppCounter></AppCounter>
     </SlotTest>
-  </div>
+  </div> -->
 
-  <div>
+  <!-- <div>
     <span>具名插槽</span>
     <br />
     <NamedSlotTest>
@@ -102,17 +102,17 @@
       <template v-slot:default>
         <p>A paragraph for the main content.</p>
         <p>And another one.</p>
-      </template>
+      </template> -->
 
-      <!-- v-slot:footer 可以简写为 #footer -->
-      <template v-slot:footer>
+  <!-- v-slot:footer 可以简写为 #footer -->
+  <!-- <template v-slot:footer>
         <p>footer Here's some contact info</p>
       </template>
     </NamedSlotTest>
-  </div>
+  </div> -->
 
 
-  <div>
+  <!-- <div>
     <span>作用域插槽</span>
     <br />
     <ScopedSlotTest>
@@ -125,16 +125,15 @@
       </template>
     </ScopedSlotTest>
 
-  </div>
+  </div> -->
 
-  <div>
 
-    <div>
+  <!-- <div>
       你可能想问什么样的场景才适合用到作用域插槽，这里我们来看一个 FancyList 组件的例子。
     </div>
-    <FancyList api-url="url" :per-page="10">
-      <!-- 等价于 v-slot:item -->
-      <template #item="{ body, username, likes }">
+    <FancyList api-url="url" :per-page="10"> -->
+  <!-- 等价于 v-slot:item -->
+  <!-- <template #item="{ body, username, likes }">
         <div>
           <p>{{ body }}</p>
           <p class="meta">by {{ username }} | {{ likes }} likes</p>
@@ -142,6 +141,14 @@
       </template>
     </FancyList>
 
+  </div> -->
+
+  <div>
+    <DependencyInjectionChild></DependencyInjectionChild>
+
+    <br />
+    <span>父组件在输入框修改注入的数据</span>
+    <input type="text" v-model="reactInjectValue" />
   </div>
 </template>
 
@@ -175,6 +182,10 @@ import SlotTest from './components/SlotTest.vue';
 import NamedSlotTest from './components/NamedSlotTest.vue';
 import ScopedSlotTest from './components/ScopedSlotTest.vue';
 import FancyList from './components/FancyList.vue';
+import { myInjectionKey } from './components/key.js';
+import DependencyInjectionChild from './components/DependencyInjectionChild.vue';
+import { computed } from 'vue';
+
 
 export default {
   name: 'App',
@@ -184,6 +195,18 @@ export default {
       message: 'hello Vue.js!',
       name: '组件另一种实现v-model的方式',
       myText: '',
+      reactInjectValue: '测试响应式的注入',
+    }
+  },
+  provide() {
+    return {
+      injectValue: '依赖注入，跨级组件传递的值',
+      injectValue2: '依赖注入，跨级组件传递的值2',
+      reactInjectValue: computed(() => this.reactInjectValue),
+
+      [myInjectionKey]: '依赖注入，跨级组件传递的ddddd值3',
+
+
     }
   },
 
@@ -213,6 +236,7 @@ export default {
     NamedSlotTest,
     ScopedSlotTest,
     FancyList,
+    DependencyInjectionChild,
   },
   methods: {
     handleCustomEvent(message) {
