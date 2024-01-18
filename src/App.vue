@@ -151,12 +151,32 @@
     <input type="text" v-model="reactInjectValue" />
   </div> -->
 
-  <div>
+  <!-- <div>
     <span>自定义指令,focus</span>
     <CustomDirectives></CustomDirectives>
-  </div>
+  </div> -->
 
-  
+  <!-- <div>
+    <span>过渡</span>
+    <TransitionTest></TransitionTest>
+  </div> -->
+
+
+  <!-- <div>
+    <TransitionTest2></TransitionTest2>
+  </div> -->
+
+  <!-- <div>
+    <TransitionTest3></TransitionTest3>
+  </div> -->
+
+  <!-- <div>
+    <TransitionTest4></TransitionTest4>
+  </div> -->
+
+  <div>
+    <TransitionTest5></TransitionTest5>
+  </div>
 </template>
 
 
@@ -193,6 +213,11 @@ import { myInjectionKey } from './components/key.js';
 import DependencyInjectionChild from './components/DependencyInjectionChild.vue';
 import { computed } from 'vue';
 import CustomDirectives from './components/CustomDirectives.vue';
+import TransitionTest from './components/TransitionTest.vue';
+import TransitionTest2 from './components/TransitionTest2.vue';
+import TransitionTest3 from './components/TransitionTest3.vue';
+import TransitionTest4 from './components/TransitionTest4.vue';
+import TransitionTest5 from './components/TransitionTest5.vue';
 
 
 export default {
@@ -246,6 +271,11 @@ export default {
     FancyList,
     DependencyInjectionChild,
     CustomDirectives,
+    TransitionTest,
+    TransitionTest2,
+    TransitionTest3,
+    TransitionTest4,
+    TransitionTest5,
   },
   methods: {
     handleCustomEvent(message) {
