@@ -143,13 +143,20 @@
 
   </div> -->
 
-  <div>
+  <!-- <div>
     <DependencyInjectionChild></DependencyInjectionChild>
 
     <br />
     <span>父组件在输入框修改注入的数据</span>
     <input type="text" v-model="reactInjectValue" />
+  </div> -->
+
+  <div>
+    <span>自定义指令,focus</span>
+    <CustomDirectives></CustomDirectives>
   </div>
+
+  
 </template>
 
 
@@ -185,6 +192,7 @@ import FancyList from './components/FancyList.vue';
 import { myInjectionKey } from './components/key.js';
 import DependencyInjectionChild from './components/DependencyInjectionChild.vue';
 import { computed } from 'vue';
+import CustomDirectives from './components/CustomDirectives.vue';
 
 
 export default {
@@ -237,6 +245,7 @@ export default {
     ScopedSlotTest,
     FancyList,
     DependencyInjectionChild,
+    CustomDirectives,
   },
   methods: {
     handleCustomEvent(message) {
