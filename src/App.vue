@@ -186,10 +186,17 @@
     <TransitionGroupTest2></TransitionGroupTest2>
   </div> -->
 
-  <div>
+  <!-- <div>
     <KeepAliveTest></KeepAliveTest>
+  </div> -->
+
+  <div id="body">
+
   </div>
-  
+
+  <div>
+    <TeleportTest></TeleportTest>
+  </div>
 </template>
 
 
@@ -234,6 +241,7 @@ import TransitionTest5 from './components/TransitionTest5.vue';
 import TransitionGroupTest from './components/TransitionGroupTest.vue';
 import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
 import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
+import TeleportTest from './components/TeleportTest.vue';
 
 
 export default {
@@ -295,6 +303,7 @@ export default {
     TransitionGroupTest,
     TransitionGroupTest2,
     KeepAliveTest,
+    TeleportTest,
   },
   methods: {
     handleCustomEvent(message) {
