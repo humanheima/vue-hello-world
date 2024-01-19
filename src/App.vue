@@ -174,8 +174,16 @@
     <TransitionTest4></TransitionTest4>
   </div> -->
 
-  <div>
+  <!-- <div>
     <TransitionTest5></TransitionTest5>
+  </div> -->
+
+  <!-- <div>
+    <TransitionGroupTest></TransitionGroupTest>
+  </div> -->
+
+  <div>
+    <TransitionGroupTest2></TransitionGroupTest2>
   </div>
 </template>
 
@@ -218,6 +226,8 @@ import TransitionTest2 from './components/TransitionTest2.vue';
 import TransitionTest3 from './components/TransitionTest3.vue';
 import TransitionTest4 from './components/TransitionTest4.vue';
 import TransitionTest5 from './components/TransitionTest5.vue';
+import TransitionGroupTest from './components/TransitionGroupTest.vue';
+import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
 
 
 export default {
@@ -276,6 +286,8 @@ export default {
     TransitionTest3,
     TransitionTest4,
     TransitionTest5,
+    TransitionGroupTest,
+    TransitionGroupTest2,
   },
   methods: {
     handleCustomEvent(message) {
