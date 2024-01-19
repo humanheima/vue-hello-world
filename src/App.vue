@@ -182,9 +182,14 @@
     <TransitionGroupTest></TransitionGroupTest>
   </div> -->
 
-  <div>
+  <!-- <div>
     <TransitionGroupTest2></TransitionGroupTest2>
+  </div> -->
+
+  <div>
+    <KeepAliveTest></KeepAliveTest>
   </div>
+  
 </template>
 
 
@@ -228,6 +233,7 @@ import TransitionTest4 from './components/TransitionTest4.vue';
 import TransitionTest5 from './components/TransitionTest5.vue';
 import TransitionGroupTest from './components/TransitionGroupTest.vue';
 import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
+import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
 
 
 export default {
@@ -288,6 +294,7 @@ export default {
     TransitionTest5,
     TransitionGroupTest,
     TransitionGroupTest2,
+    KeepAliveTest,
   },
   methods: {
     handleCustomEvent(message) {
