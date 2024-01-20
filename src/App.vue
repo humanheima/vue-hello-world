@@ -190,12 +190,16 @@
     <KeepAliveTest></KeepAliveTest>
   </div> -->
 
-  <div id="body">
+  <!-- <div id="body">
 
   </div>
 
   <div>
     <TeleportTest></TeleportTest>
+  </div> -->
+
+  <div>
+    <SimpleRouterTest></SimpleRouterTest>
   </div>
 </template>
 
@@ -242,6 +246,7 @@ import TransitionGroupTest from './components/TransitionGroupTest.vue';
 import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
 import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
 import TeleportTest from './components/TeleportTest.vue';
+import SimpleRouterTest from './components/router/SimpleRouterTest.vue';
 
 
 export default {
@@ -304,6 +309,7 @@ export default {
     TransitionGroupTest2,
     KeepAliveTest,
     TeleportTest,
+    SimpleRouterTest,
   },
   methods: {
     handleCustomEvent(message) {
