@@ -39,6 +39,9 @@ provide 和 inject 可以帮助我们解决这一问题。 一个父组件相对
 * 要为组件后代提供数据，需要使用到 provide 选项
 
 
+### 状态管理
+
+
     
 
 ## Project setup

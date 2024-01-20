@@ -198,8 +198,12 @@
     <TeleportTest></TeleportTest>
   </div> -->
 
-  <div>
+  <!-- <div>
     <SimpleRouterTest></SimpleRouterTest>
+  </div> -->
+
+  <div>
+    <ComponentStateManage></ComponentStateManage>
   </div>
 </template>
 
@@ -247,6 +251,7 @@ import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
 import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
 import TeleportTest from './components/TeleportTest.vue';
 import SimpleRouterTest from './components/router/SimpleRouterTest.vue';
+import ComponentStateManage from './components/state_manage/ComponentStatusManage.vue';
 
 
 export default {
@@ -310,6 +315,7 @@ export default {
     KeepAliveTest,
     TeleportTest,
     SimpleRouterTest,
+    ComponentStateManage,
   },
   methods: {
     handleCustomEvent(message) {
