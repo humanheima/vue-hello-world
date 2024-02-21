@@ -30,17 +30,23 @@ export default {
         console.log('the component is now mounted.');
     },
 
+    beforeUpdate() {
+        console.log('beforeUpdate');
+    },
+
     //updated 钩子被用于 DOM 更新之后运行代码：
     updated() {
         console.log('the component is now updated.');
     },
 
 
+    beforeUnmount () {
+        console.log('beforeUnmount');
+    },
+
     unmounted() {
         console.log('the component is now unmounted.');
     },
-
-
 }
 </script>
 
@@ -50,6 +56,8 @@ export default {
         <p>{{ message }}</p>
         <p>{{ multiMessage }}</p>
         <p>{{ checked }}</p>
+
+        <button @click="checked = !checked">Toggle checked</button> <br />
 
     </div>
 </template>

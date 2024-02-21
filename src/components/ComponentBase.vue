@@ -53,7 +53,7 @@ export default {
     <hr>
     <div v-bind:style="{ fontSize: postFontSize + 'em' }">
         <h3>测试传递 props</h3>
-        <!--  @enlarge-text="postFontSize += 0.1" 监听enlarge-text事件，收到事件，postFontSize增加 -->
+        <!--  @enlarge-text="postFontSize += 0.1" 监听子组件发出的，enlarge-text事件，收到事件，postFontSize增加 -->
         <BlogPost title="My journey with Vue" content="This is my journey with Vue" likes="xx"
             @enlarge-text="postFontSize += 0.1"></BlogPost>
         <BlogPost title="Blogging with Vue" content="This is my blogging with Vue" likes="20"

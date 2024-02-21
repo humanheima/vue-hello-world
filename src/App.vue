@@ -3,14 +3,17 @@
 <template>
   <!-- <AppCounter></AppCounter> -->
 
-  <div>
-    <!-- <TestCompositionApi></TestCompositionApi>
-    <TestOptionApi></TestOptionApi>
-    <ComputeAttribute></ComputeAttribute> -->
-  </div>
   <!-- <div>
-    <ClassStyleBind></ClassStyleBind>
+    <TestCompositionApi></TestCompositionApi>
+    <TestOptionApi></TestOptionApi>
+   
   </div> -->
+  <!-- <div>
+    <ComputeAttribute></ComputeAttribute>
+  </div> -->
+  <div>
+    <ClassStyleBind></ClassStyleBind>
+  </div>
   <!-- <div>
     <ConditionRender></ConditionRender>
   </div> -->
@@ -202,9 +205,9 @@
     <SimpleRouterTest></SimpleRouterTest>
   </div> -->
 
-  <div>
+  <!-- <div>
     <ComponentStateManage></ComponentStateManage>
-  </div>
+  </div> -->
 </template>
 
 
