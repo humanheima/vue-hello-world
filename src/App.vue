@@ -11,12 +11,12 @@
   <!-- <div>
     <ComputeAttribute></ComputeAttribute>
   </div> -->
-  <div>
-    <ClassStyleBind></ClassStyleBind>
-  </div>
   <!-- <div>
-    <ConditionRender></ConditionRender>
+    <ClassStyleBind></ClassStyleBind>
   </div> -->
+  <div>
+    <ConditionRender></ConditionRender>
+  </div>
 
   <!-- <div>
   <ListRender></ListRender>
