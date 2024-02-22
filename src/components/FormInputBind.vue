@@ -4,6 +4,9 @@ export default {
     data() {
         return {
             message: 'Hello Vue.js!',
+            messageLazy: 'Hello Vue.js! Lazy',
+            messageNumber: "number test",
+            messageTrim: 'Hello Vue.js! Trim',
             multiMessage: '多行文本，Hello Vue.js!',
             checked: false,
 
@@ -11,6 +14,11 @@ export default {
             picked: 'One',
             selected: '',
             selectedArray: [],
+        }
+    },
+    watch: {
+        messageNumber: function (val) {
+            console.log('message changed: 类型是' + (typeof val) + " , 值是 " + val);
         }
     }
 }
@@ -21,7 +29,19 @@ export default {
     <div>
         <p>{{ message }}</p>
         <input v-model="message">
+
+
+        <p>{{ messageLazy }}</p>
+        <input v-model.lazy="messageLazy">
+
+        <p>{{ messageNumber }}</p>
+        <input v-model.number="messageNumber">
+
+        <p>{{ messageTrim }}</p>
+        <input v-model.trim="messageTrim">
+        
     </div>
+
     <hr>
     <div>
         <p>多行文本</p>

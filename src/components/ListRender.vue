@@ -36,6 +36,12 @@ export default {
         }
     },
 
+    methods: {
+        modifyItems() {
+            this.items.splice(1, 1, { message: 'Baz', id: 4 });
+        }
+    }
+
 }
 
 </script>
@@ -49,6 +55,22 @@ export default {
         </li>
     </ul>
 
+    <!-- 在一个循环中，创建多个组件 -->
+    <template v-for="(item, index) in items" :key="item.id">
+
+        <div>
+            {{ parentMessage }},index = {{ index }},{{ item.message }},
+        </div>
+        <span>
+
+            {{ parentMessage }},index = {{ index }},{{ item.message }},
+        </span>
+    </template>
+
+    <p>
+        <button @click="modifyItems">修改items</button>
+    </p>
+
     <hr>
     <div>
 
@@ -57,7 +79,7 @@ export default {
 
         <ul>
             <li v-for="(value, key, index) in myObject" :key="index">
-                {{ index }}. {{ key }}: {{ value }}
+                inex = {{ index }} ; key =  {{ key }} ; value =  {{ value }}
             </li>
         </ul>
     </div>

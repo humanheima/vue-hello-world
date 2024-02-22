@@ -14,22 +14,22 @@
   <!-- <div>
     <ClassStyleBind></ClassStyleBind>
   </div> -->
-  <div>
+  <!-- <div>
     <ConditionRender></ConditionRender>
-  </div>
+  </div> -->
 
   <!-- <div>
-  <ListRender></ListRender>
-</div> -->
+    <ListRender></ListRender>
+  </div> -->
 
 
   <!-- <div>
     <EventHandle></EventHandle>
   </div> -->
 
-  <!-- <div>
+  <div>
     <FormInputBind></FormInputBind>
-  </div> -->
+  </div>
 
   <!-- <div>
     <LifeCycle></LifeCycle>

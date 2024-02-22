@@ -30,6 +30,10 @@ export default {
             }
             alert(message)
         },
+        onSubmit() {
+            alert('Form submitted!')
+
+        }
 
     }
 }
@@ -38,6 +42,7 @@ export default {
 
 <template>
     <div>
+
         <p>内联事件处理器</p>
         <p>{{ cout }}</p>
         <button v-on:click="cout++">+1</button>
@@ -66,4 +71,22 @@ export default {
             Submit
         </button>
     </div>
+
+    <div>
+        <p>事件修饰符，参考 https://coding.imooc.com/lesson/203.html#mid=34862 </p>
+        <form v-on:submit.prevent="onSubmit">
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+    </div>
 </template>
+
+<style scoped>
+.button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: red;
+}
+</style>
+```

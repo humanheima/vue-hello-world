@@ -49,7 +49,7 @@ provide 和 inject 可以帮助我们解决这一问题。 一个父组件相对
 版本 6.6.1 版本
 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 
-开始在浏览器里找不到，是因为右边太窄了，vue选项在下拉菜单里。点击vue选项，vue选项就会排到第一个。点击元素，就可以在console里看到vue的数据了。
+开始在浏览器里找不到，是因为右边太窄了，vue选项在下拉菜单里。点击vue选项，vue选项就会排到第一个。点击一个vue元素，就可以在console里看到vue的数据了。
 
 $vm.data 就是vue的数据了。
 
