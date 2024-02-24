@@ -8,7 +8,17 @@ export default {
     //所有 prop 默认都是可选的，除非声明了 required: true。
     props: {
         title: String,
-        content: String,
+        content: {
+            type: String,
+            default: 'This is my journey with Vue',
+            //验证不过，会有这样一个警告
+            //[Vue warn]: Invalid prop: custom validator check failed for prop "content". 
+            //at <PropValidTest title="My journey with Vue" content="This is my journey with Vue" likes=10  ... > 
+            validator(value) {
+                return value.length > 30
+            }
+        },
+
         // 必传，且为 Number 类型
         // 如果传入xx，在控制台会有下面这样一个警告
         // Invalid prop: type check failed for prop "likes". Expected Number with value NaN, got String with value "xx". 

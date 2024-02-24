@@ -27,9 +27,9 @@
     <EventHandle></EventHandle>
   </div> -->
 
-  <div>
+  <!-- <div>
     <FormInputBind></FormInputBind>
-  </div>
+  </div> -->
 
   <!-- <div>
     <LifeCycle></LifeCycle>
@@ -43,10 +43,10 @@
     <TemplateReference></TemplateReference>
   </div> -->
 
-  <!-- <div>
+  <div>
     <ComponentBase></ComponentBase>
 
-  </div> -->
+  </div>
 
   <!-- <div>
 
@@ -208,6 +208,10 @@
   <!-- <div>
     <ComponentStateManage></ComponentStateManage>
   </div> -->
+
+  <!-- <div>
+    <TbodyComponent></TbodyComponent>
+  </div> -->
 </template>
 
 
@@ -255,7 +259,7 @@ import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
 import TeleportTest from './components/TeleportTest.vue';
 import SimpleRouterTest from './components/router/SimpleRouterTest.vue';
 import ComponentStateManage from './components/state_manage/ComponentStatusManage.vue';
-
+import TbodyComponent from './components/module/TbodyComponent.vue';
 
 export default {
   name: 'App',
@@ -319,6 +323,7 @@ export default {
     TeleportTest,
     SimpleRouterTest,
     ComponentStateManage,
+    TbodyComponent,
   },
   methods: {
     handleCustomEvent(message) {

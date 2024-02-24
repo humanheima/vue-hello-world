@@ -9,11 +9,9 @@ export default {
 
     data() {
         return {
-            count: 0,
             posts: [
-                { id: 1, title: 'My journey with Vue', content: 'This is my journey with Vue', likes: 10 },
+                { id: 1, title: 'My journey with Vue', content: 'This is my journey with Vue', likes: "xx" },
                 { id: 2, title: 'Blogging with Vue', content: 'This is my blogging with Vue', likes: 20 },
-                { id: 3, title: 'Why Vue is so fun', content: 'This is why Vue is so fun', likes: 30 },
             ],
             postFontSize: 1,
 
@@ -25,7 +23,7 @@ export default {
                     message: 'hello world'
                 },
                 propF: 'success',
-                propG: function() {
+                propG: function () {
                     return 'haha function'
                 },
 
@@ -33,8 +31,11 @@ export default {
         }
     },
     methods: {
-        increment() {
-            this.count++;
+        handleEnlargeText: function (step) {
+            this.postFontSize += step;
+        },
+        handleMiniText: function (step) {
+            this.postFontSize -= step;
         }
     },
 }
@@ -43,8 +44,17 @@ export default {
 
 <template>
     <h1>测试组件基础</h1>
-    <p>{{ count }}</p>
-    <button @click="increment">增加count</button>
+    <div>
+        包括：
+        <div>
+            <ul>
+                <li>引用子组件，父组件使用 props向子组件传值，</li>
+                <li>子组件eimts事件，向父组件传值</li>
+                <li>测试 props 验证</li>
+            </ul>
+        </div>
+
+    </div>
     <hr>
     <div>
         <h2>引用子组件</h2>
@@ -52,18 +62,13 @@ export default {
     </div>
     <hr>
     <div v-bind:style="{ fontSize: postFontSize + 'em' }">
-        <h3>测试传递 props</h3>
+        <h3>测试传递父组件向子组件传值，使用 props</h3>
         <!--  @enlarge-text="postFontSize += 0.1" 监听子组件发出的，enlarge-text事件，收到事件，postFontSize增加 -->
-        <BlogPost title="My journey with Vue" content="This is my journey with Vue" likes="xx"
-            @enlarge-text="postFontSize += 0.1"></BlogPost>
-        <BlogPost title="Blogging with Vue" content="This is my blogging with Vue" likes="20"
-            @enlarge-text="postFontSize += 0.1"></BlogPost>
-
         <div>
             <span>使用v-for构建BlogPost</span>
 
             <BlogPost v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title" v-bind:content="post.content"
-                v-bind:likes="post.likes" @enlarge-text="postFontSize += 0.1"></BlogPost>
+                v-bind:likes="post.likes" @enlarge-text="handleEnlargeText" @mini-text="handleMiniText"></BlogPost>
 
         </div>
 
@@ -71,7 +76,8 @@ export default {
         <div>
             <span>使用一个对象绑定多个 prop，和上面的使用v-for构建BlogPost 是等价的</span>
 
-            <BlogPost v-for="post in posts" v-bind="post" @enlarge-text="postFontSize += 0.1"></BlogPost>
+            <BlogPost v-for="post in posts" v-bind:key="post.id" v-bind="post" @enlarge-text="handleEnlargeText"
+                @mini-text="handleMiniText"></BlogPost>
 
         </div>
 

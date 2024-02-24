@@ -78,3 +78,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### module 文件夹下是测试所有组件知识相关的组件
