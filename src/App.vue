@@ -231,10 +231,9 @@ export default {
       <template v-slot:default>
         <p>A paragraph for the main content.</p>
         <p>And another one.</p>
-      </template> -->
+      </template>
 
-  <!-- v-slot:footer 可以简写为 #footer -->
-  <!-- <template v-slot:footer>
+      <template #footer>
         <p>footer Here's some contact info</p>
       </template>
     </NamedSlotTest>
@@ -246,11 +245,14 @@ export default {
     <br />
     <ScopedSlotTest>
       <template v-slot:header="headProps">
-        <h1>{{ headProps.text }}</h1>
+        <h1>插槽出口提供的内容：{{ headProps.text }}</h1>
       </template>
       <template v-slot:default="slotProps">
         <p>{{ slotProps.text }}</p>
         <p>{{ slotProps.count }}</p>
+      </template>
+      <template v-slot:footer="footProps">
+        <p>{{ footProps.item.text }}</p>
       </template>
     </ScopedSlotTest>
 
@@ -339,9 +341,12 @@ export default {
     <TbodyComponent></TbodyComponent>
   </div> -->
 
-  <div>
+  <!-- <div>
     <EventBusParent></EventBusParent>
-  </div>
+  </div> -->
+
+  <DynamicComponentTest></DynamicComponentTest>
+  
 </template>
 
 

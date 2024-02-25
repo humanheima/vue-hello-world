@@ -11,8 +11,22 @@ export default {
     },
     data() {
         return {
+            count: 1,
             currentTab: 'Home',
             tabs: ['Home', 'Posts', 'Archive']
+        }
+    },
+    methods: {
+        handleClick() {
+            //count取余
+            if (this.count % 3 == 0) {
+                this.currentTab = 'Home'
+            } else if (this.count % 3 == 1) {
+                this.currentTab = 'Posts'
+            } else {
+                this.currentTab = 'Archive'
+            }
+            this.count++
         }
     }
 }
@@ -20,11 +34,14 @@ export default {
 
 <template>
     <div class="demo">
-        <button v-for="tab in tabs" :key="tab" :class="['tab-button', { active: currentTab === tab }]"
+        <!-- <button v-for="tab in tabs" :key="tab" :class="['tab-button', { active: currentTab === tab }]"
             @click="currentTab = tab">
             {{ tab }}
-        </button>
+        </button> -->
         <component :is="currentTab" class="tab"></component>
+
+        <button @click="handleClick">切换tab</button>
+
     </div>
 </template>
 
