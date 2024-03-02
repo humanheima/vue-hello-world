@@ -1,4 +1,5 @@
 <!-- eslint-disable vue/no-unused-components -->
+
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 // eslint-disable-next-line
@@ -32,7 +33,12 @@ import { myInjectionKey } from './components/key.js';
 import DependencyInjectionChild from './components/DependencyInjectionChild.vue';
 import { computed } from 'vue';
 import CustomDirectives from './components/CustomDirectives.vue';
-import TransitionTest from './components/TransitionTest.vue';
+import TransitionTest1_0 from './components/TransitionTest1_0.vue';
+import TransitionTest1_1 from './components/TransitionTest1_1.vue';
+import TransitionTest1_2 from './components/TransitionTest1_2.vue';
+import TransitionTest1_3 from './components/TransitionTest1_3.vue';
+import TestUseAnimateCSSLib from './components/TestUseAnimateCSSLib.vue';
+
 import TransitionTest2 from './components/TransitionTest2.vue';
 import TransitionTest3 from './components/TransitionTest3.vue';
 import TransitionTest4 from './components/TransitionTest4.vue';
@@ -45,6 +51,10 @@ import SimpleRouterTest from './components/router/SimpleRouterTest.vue';
 import ComponentStateManage from './components/state_manage/ComponentStatusManage.vue';
 import TbodyComponent from './components/module/TbodyComponent.vue';
 import EventBusParent from './components/module/eventbus_test/EventBusParent.vue';
+import TestLayout from './components/TestLayout.vue';
+import TestUseBothTransitionAndAnimate from './components/TestUseBothTransitionAndAnimate.vue';
+import TestJsAnimation from './components/test_animation/TestJsAnimation.vue';
+import TestJsAnimationUseVelocity from './components/test_animation/TestJsAnimationUseVelocity.vue';
 
 export default {
   name: 'App',
@@ -97,7 +107,11 @@ export default {
     FancyList,
     DependencyInjectionChild,
     CustomDirectives,
-    TransitionTest,
+    TransitionTest1_0,
+    TransitionTest1_1,
+    TransitionTest1_2,
+    TransitionTest1_3,
+    TestUseAnimateCSSLib,
     TransitionTest2,
     TransitionTest3,
     TransitionTest4,
@@ -109,7 +123,11 @@ export default {
     SimpleRouterTest,
     ComponentStateManage,
     TbodyComponent,
-    EventBusParent
+    EventBusParent,
+    TestLayout,
+    TestUseBothTransitionAndAnimate,
+    TestJsAnimation,
+    TestJsAnimationUseVelocity,
   },
   methods: {
     handleCustomEvent(message) {
@@ -125,6 +143,16 @@ export default {
 </script>
 
 <template>
+
+  <div>
+    <TestJsAnimationUseVelocity></TestJsAnimationUseVelocity>
+  </div>
+  <!-- <div>
+    <TestJsAnimation></TestJsAnimation>
+  </div> -->
+  <!-- <div>
+    <TestUseBothTransitionAndAnimate></TestUseBothTransitionAndAnimate>
+  </div> -->
   <!-- <AppCounter></AppCounter> -->
 
   <!-- <div>
@@ -228,16 +256,16 @@ export default {
         <h1>Here might be a page title</h1>
       </template>
 
-      <template v-slot:default>
+<template v-slot:default>
         <p>A paragraph for the main content.</p>
         <p>And another one.</p>
       </template>
 
-      <template #footer>
+<template #footer>
         <p>footer Here's some contact info</p>
       </template>
-    </NamedSlotTest>
-  </div> -->
+</NamedSlotTest>
+</div> -->
 
 
   <!-- <div>
@@ -288,10 +316,17 @@ export default {
   </div> -->
 
   <!-- <div>
-    <span>过渡</span>
-    <TransitionTest></TransitionTest>
+    <div>动画</div>
+    <TransitionTest1_3></TransitionTest1_3>
   </div> -->
 
+  <!-- <div>
+    <TestUseAnimateCSSLib></TestUseAnimateCSSLib>
+  </div> -->
+
+  <!-- <div>
+    <TransitionTest1_0></TransitionTest1_0>
+  </div> -->
 
   <!-- <div>
     <TransitionTest2></TransitionTest2>
@@ -345,8 +380,12 @@ export default {
     <EventBusParent></EventBusParent>
   </div> -->
 
-  <DynamicComponentTest></DynamicComponentTest>
-  
+  <!-- <DynamicComponentTest></DynamicComponentTest> -->
+
+  <!-- <div>
+    <TestLayout></TestLayout>
+  </div> -->
+
 </template>
 
 
