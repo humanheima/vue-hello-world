@@ -81,3 +81,18 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ### module 文件夹下是测试所有组件知识相关的组件
+
+
+### vue 创建项目
+
+
+vue create hello-world
+
+vue create --help
+
+创建项目的同时合并存在的文件夹
+```
+vue create --merge travel-project                       
+```
+
+
