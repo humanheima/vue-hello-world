@@ -38,7 +38,9 @@ export default {
             @click="currentTab = tab">
             {{ tab }}
         </button> -->
-        <component :is="currentTab" class="tab"></component>
+        <Transition  mode="out-in">
+            <component :is="currentTab" class="tab"></component>
+        </Transition>
 
         <button @click="handleClick">切换tab</button>
 

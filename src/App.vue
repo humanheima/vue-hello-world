@@ -144,9 +144,9 @@ export default {
 
 <template>
 
-  <div>
+  <!-- <div>
     <TestJsAnimationUseVelocity></TestJsAnimationUseVelocity>
-  </div>
+  </div> -->
   <!-- <div>
     <TestJsAnimation></TestJsAnimation>
   </div> -->
@@ -195,10 +195,10 @@ export default {
     <TemplateReference></TemplateReference>
   </div> -->
 
-  <!-- <div>
+  <div>
     <ComponentBase></ComponentBase>
 
-  </div> -->
+  </div>
 
   <!-- <div>
 

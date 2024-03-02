@@ -3,12 +3,15 @@
 import ChildComponentBase from './ChildComponentBase.vue';
 import BlogPost from './BlogPost.vue';
 import PropValidTest from './PropValidTest.vue';
+import TransitionTest1_0_encapsulation from './TransitionTest1_0_encapsulation.vue';
 
 export default {
-    components: { ChildComponentBase, BlogPost, PropValidTest },
+    components: { ChildComponentBase, BlogPost, PropValidTest, TransitionTest1_0_encapsulation },
 
     data() {
         return {
+
+            show: false,
             posts: [
                 { id: 1, title: 'My journey with Vue', content: 'This is my journey with Vue', likes: "xx" },
                 { id: 2, title: 'Blogging with Vue', content: 'This is my blogging with Vue', likes: 20 },
@@ -44,6 +47,23 @@ export default {
 
 <template>
     <h1>测试组件基础</h1>
+
+    <h3>Vue 子组件做了动画封装</h3>
+
+    <div>
+        <TransitionTest1_0_encapsulation v-bind:show="show">
+            <h3>在父组件里使用 Vue 封装的动画</h3>
+        </TransitionTest1_0_encapsulation>
+
+        <TransitionTest1_0_encapsulation v-bind:show="show">
+            <div style="color: blue;">在父组件里使用 Vue 封装的动画</div>
+        </TransitionTest1_0_encapsulation>
+
+        <button @click="show = !show">改变show的值</button>
+    </div>
+
+    <br>
+
     <div>
         包括：
         <div>
