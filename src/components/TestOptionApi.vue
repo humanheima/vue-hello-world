@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="vertical-stack">
         <span>选项式Api 测试</span>
         <span>count is: {{ count }}</span>
         <button @click="increment">增加count</button>
@@ -55,6 +55,20 @@ export default {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.vertical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    /* 如需水平居中改为 center */
+}
 
+.vertical-stack button {
+    /* 按钮宽度自适应，靠内容伸缩 */
+    display: inline-block;
+    min-width: 96px;
+    padding: 4px 20px;
+}
 
+</style>

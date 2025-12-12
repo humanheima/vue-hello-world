@@ -25,7 +25,8 @@ const docState = ref('saved')
   height: 1em;
 }
 
-button {
+/* 限定到本组件的按钮，避免全局覆盖 */
+.btn-container button {
   position: absolute;
 }
 
