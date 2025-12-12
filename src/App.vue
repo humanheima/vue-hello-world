@@ -52,6 +52,7 @@ import ComponentStateManage from './components/state_manage/ComponentStatusManag
 import TbodyComponent from './components/module/TbodyComponent.vue';
 import EventBusParent from './components/module/eventbus_test/EventBusParent.vue';
 import TestLayout from './components/TestLayout.vue';
+import TestLayout2 from './components/TestLayout2.vue';
 import TestUseBothTransitionAndAnimate from './components/TestUseBothTransitionAndAnimate.vue';
 import TestJsAnimation from './components/test_animation/TestJsAnimation.vue';
 import TestJsAnimationUseVelocity from './components/test_animation/TestJsAnimationUseVelocity.vue';
@@ -125,6 +126,7 @@ export default {
     TbodyComponent,
     EventBusParent,
     TestLayout,
+    TestLayout2,
     TestUseBothTransitionAndAnimate,
     TestJsAnimation,
     TestJsAnimationUseVelocity,
@@ -194,11 +196,11 @@ export default {
   <!-- <div>
     <TemplateReference></TemplateReference>
   </div> -->
-
+<!-- 
   <div>
     <ComponentBase></ComponentBase>
 
-  </div>
+  </div> -->
 
   <!-- <div>
 
@@ -382,10 +384,15 @@ export default {
 
   <!-- <DynamicComponentTest></DynamicComponentTest> -->
 
-  <!-- <div>
-    <TestLayout></TestLayout>
-  </div> -->
+  <div>
+    <!-- 渲染 TestLayout2 以验证 p 与 button 水平居中 -->
+    <TestLayout2></TestLayout2>
+  </div>
 
+<div>
+    <!-- 渲染 TestLayout2 以验证 p 与 button 水平居中 -->
+    <TestLayout></TestLayout>
+  </div>
 </template>
 
 
