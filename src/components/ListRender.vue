@@ -54,44 +54,50 @@ export default {
             {{ parentMessage }},index = {{ index }},{{ item.message }},
         </li>
     </ul>
+    <!-- 直接在模板里 -->
+
+
+    <hr class="styled-hr" />
 
     <!-- 在一个循环中，创建多个组件 -->
     <template v-for="(item, index) in items" :key="item.id">
 
+        <button>
+            {{ parentMessage }},index = {{ index }},{{ item.message }},
+        </button>
         <div>
             {{ parentMessage }},index = {{ index }},{{ item.message }},
         </div>
-        <span>
-
-            {{ parentMessage }},index = {{ index }},{{ item.message }},
-        </span>
+       
+         <hr class="styled-hr dashed" />
     </template>
 
     <p>
         <button @click="modifyItems">修改items</button>
     </p>
 
-    <hr>
+    <hr class="styled-hr">
     <div>
 
-        <p>v-for 与对象使用 v-for 来遍历一个对象的所有属性。遍历的顺序会基于对该对象调用
+        <p><span class="label-strong">使用v-for 遍历对象：</span>使用 v-for 来遍历一个对象的所有属性。遍历的顺序会基于对该对象调用
             Object.keys() 的返回值来决定。</p>
 
         <ul>
             <li v-for="(value, key, index) in myObject" :key="index">
-                inex = {{ index }} ; key =  {{ key }} ; value =  {{ value }}
+                inex = {{ index }} ; key = {{ key }} ; value = {{ value }}
             </li>
         </ul>
     </div>
 
-    <hr>
+     <hr class="styled-hr">
 
     <div>
-        <p>在 v-for 里使用范围值</p>
-        <span v-for="n in 10" :key="n">{{ n }}</span>
+        <p class="label-margin-bottom">在 v-for 里使用范围值</p>
+
+        <span v-for="n in 9" :key="n">{{ n }}</span>
     </div>
 
-    <hr>
+     <hr class="styled-hr">
 
     <div>
         <ul>
@@ -101,7 +107,8 @@ export default {
         </ul>
     </div>
 
-    <hr>
+    <hr class="styled-hr">
+
     <div>
         <template v-for="todo in todos">
             <li v-if="todo.isComplete" :key="todo.text">
@@ -109,9 +116,26 @@ export default {
             </li>
         </template>
     </div>
-    <hr>
+     <hr class="styled-hr">
     <ul>
         <li v-for="n in evenNumbers" v-bind:key="n">{{ n }}</li>
 
     </ul>
 </template>
+
+<style scoped>
+.styled-hr {
+  border: none;
+  height: 1px;
+  background: #e6e6e6;
+  margin: 16px 0;
+}
+.label-strong {
+  font-weight: 700;
+  /* 可选：color: #333; font-size: 1.05em; */
+}
+.label-margin-bottom {
+  margin-bottom: 20px; /* p 和下面的 span 之间加间距 */
+}
+.styled-hr.dashed { background: none; border-top: 1px dashed #ccc; height: 0; }
+</style>

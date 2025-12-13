@@ -42,38 +42,40 @@ export default {
 
 <template>
     <div>
-
         <p>内联事件处理器</p>
-        <p>{{ cout }}</p>
-        <button v-on:click="cout++">+1</button>
+        <p>count = {{ cout }}</p>
+        <button class="button" v-on:click="cout++">+1</button>
     </div>
-    <hr>
-    <div>
+
+    <hr class="styled-hr">
+
+    <div class="vertical-buttons">
+
         <p>{{ message }}</p>
-        <button v-on:click="reverseMessage">Reverse Message</button>
-        <button v-on:click="greet">Greet</button>
+        <button class="button" v-on:click="reverseMessage">Reverse Message</button>
+        <button class="button" v-on:click="greet">Greet</button>
     </div>
-    <hr>
+    <hr class="styled-hr">
     <div>
         <p>在内联处理器中调用方法</p>
-        <button @click="say('hello')">Say hello</button>
-        <button @click="say('bye')">Say bye</button>
+        <button class="button" @click="say('hello')">Say hello</button>
+        <button class="button" @click="say('bye')">Say bye</button>
     </div>
-    <hr>
+    <hr class="styled-hr">
     <div>
         <!-- 使用特殊的 $event 变量 -->
-        <button @click="warn('Form cannot be submitted yet.', $event)">
+        <button class="button" @click="warn('Form cannot be submitted yet.', $event)">
             Submit
         </button>
 
         <!-- 使用内联箭头函数 -->
-        <button @click="(event) => warn('Form cannot be submitted yet.', event)">
+        <button class="button" @click="(event) => warn('Form cannot be submitted yet.', event)">
             Submit
         </button>
     </div>
 
     <div>
-        <p>事件修饰符，参考 https://coding.imooc.com/lesson/203.html#mid=34862 </p>
+        <p>事件修饰符，参考 <a href="https://coding.imooc.com/lesson/203.html#mid=34862" target="_blank">慕课网，貌似过期了</a></p>
         <form v-on:submit.prevent="onSubmit">
             <button type="submit" class="button">Submit</button>
         </form>
@@ -84,9 +86,29 @@ export default {
 <style scoped>
 .button {
     margin: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 16px;
-    color: red;
+    background-color: #42b983;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.vertical-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.styled-hr {
+  border: none;
+  height: 1px;
+  background: #e6e6e6;
+  margin: 16px 0;
+}
+
+.vertical-buttons .button {
+    margin-bottom: 10px;
 }
 </style>
 ```
