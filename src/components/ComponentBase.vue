@@ -62,7 +62,8 @@ export default {
         <button @click="show = !show">改变show的值</button>
     </div>
 
-    <br>
+    <hr class="styled-hr">
+    
 
     <div>
         包括：
@@ -103,7 +104,7 @@ export default {
 
     </div>
 
-    <hr>
+    <hr class="styled-hr">
     <div>
         <span>测试 props 验证</span>
 
@@ -111,3 +112,12 @@ export default {
 
     </div>
 </template>
+
+<style scoped>
+.styled-hr {
+    border: none;
+    height: 1px;
+    background: #e6e6e6;
+    margin: 16px 0;
+}
+</style>

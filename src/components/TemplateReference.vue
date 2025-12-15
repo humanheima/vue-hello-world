@@ -25,7 +25,7 @@ export default {
     <input ref="input" />
     <input type="text" value="123445">
 
-    <hr>
+    <hr class="styled-hr">
     <div>
         <span>v-for 中的模版引用，需要 v3.2.25 及以上版本，
             当在 v-for 中使用模板引用时，相应的引用中包含的值是一个数组：</span>
@@ -36,4 +36,15 @@ export default {
             </li>
         </ul>
     </div>
+    
 </template>
+
+
+<style scoped>
+.styled-hr {
+    border: none;
+    height: 1px;
+    background: #e6e6e6;
+    margin: 16px 0;
+}
+</style>

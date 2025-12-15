@@ -27,7 +27,8 @@ export default {
 
 <template>
     <div>
-        <div>v-model 是 Vue.js 中的双向数据绑定指令，主要用于表单控件（如 &lt;input&gt;、&lt;textarea&gt;、&lt;select&gt; 等）与组件数据之间的双向同步。它简化了表单输入的处理，让数据和视图自动保持一致。</div>
+        <div>v-model 是 Vue.js 中的双向数据绑定指令，主要用于表单控件（如 &lt;input&gt;、&lt;textarea&gt;、&lt;select&gt;
+            等）与组件数据之间的双向同步。它简化了表单输入的处理，让数据和视图自动保持一致。</div>
 
         <p>{{ message }}</p>
         <input v-model="message">
@@ -39,19 +40,19 @@ export default {
         <p>{{ messageLazy }}</p>
         <input v-model.lazy="messageLazy">
 
-          <hr class="styled-hr">
+        <hr class="styled-hr">
 
-          <!-- 作用：自动将输入框的值转换为数字类型（Number）。 -->
+        <!-- 作用：自动将输入框的值转换为数字类型（Number）。 -->
         <p>{{ messageNumber }}</p>
         <input v-model.number="messageNumber">
 
-         <hr class="styled-hr">
+        <hr class="styled-hr">
 
-         <!-- 作用：自动去除输入值前后的空白字符（空格、制表符等）。 -->
+        <!-- 作用：自动去除输入值前后的空白字符（空格、制表符等）。 -->
         <p>{{ messageTrim }}</p>
         <input v-model.trim="messageTrim">
-        
-         <hr class="styled-hr">
+
+        <hr class="styled-hr">
 
     </div>
 
@@ -63,9 +64,9 @@ export default {
     </div>
 
     <hr class="styled-hr">
-    
-    <div>
-        <input type="checkbox" id="checkbox" v-model="checked" />
+
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox" class="checkbox-input" v-model="checked" />
         <label for="checkbox">{{ checked }}</label>
     </div>
     <hr class="styled-hr">
@@ -74,14 +75,20 @@ export default {
         <span>我们也可以将多个复选框绑定到同一个数组或集合的值：</span>
         <div>Checked names: {{ checkedNames }}</div>
 
-        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-        <label for="jack">Jack</label>
+        <span class="radio-group">
+            <input class="checkbox-input" type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+        </span>
 
-        <input type="checkbox" id="john" value="John" v-model="checkedNames">
-        <label for="john">John</label>
+        <span class="radio-group">
+            <input class="checkbox-input" type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+        </span>
 
-        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-        <label for="mike">Mike</label>
+        <span class="radio-group">
+            <input class="checkbox-input" type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+        </span>
 
     </div>
     <hr class="styled-hr">
@@ -90,14 +97,20 @@ export default {
 
         <div>Picked: {{ picked }}</div>
 
-        <input type="radio" id="one" value="One" v-model="picked">
-        <label for="one">One</label>
+        <span class="radio-group">
+            <input type="radio" id="one" value="One" class="radio-input" v-model="picked">
+            <label for="one">第一个</label>
+        </span>
 
-        <input type="radio" id="two" value="Two" v-model="picked">
-        <label for="two">Two</label>
+        <span class="radio-group">
+            <input type="radio" id="two" value="Two" class="radio-input" v-model="picked">
+            <label for="two">第二个Two</label>
+        </span>
 
     </div>
+
     <hr class="styled-hr">
+
     <div>
         <span>选择器</span>
         <div>Selected: {{ selected }}</div>
@@ -109,7 +122,9 @@ export default {
             <option>C</option>
         </select>
     </div>
-    <hr>
+
+    <hr class="styled-hr">
+
     <div>
         <span>多选选择器</span>
         <div>Selected: {{ selectedArray }}</div>
@@ -120,20 +135,21 @@ export default {
             <option>C</option>
         </select>
     </div>
-    <hr>
+
+    <hr class="styled-hr">
+
 </template>
 
 <style scoped>
-
 select[multiple] {
     width: 100px;
 }
 
 .styled-hr {
-  border: none;
-  height: 1px;
-  background: #e6e6e6;
-  margin: 16px 0;
+    border: none;
+    height: 1px;
+    background: #e6e6e6;
+    margin: 16px 0;
 }
 
 .multi-textarea {
@@ -145,5 +161,24 @@ select[multiple] {
     box-sizing: border-box;
 }
 
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
 
+.checkbox-input {
+    margin-right: 20px;
+    accent-color: #42b983;
+    transform: scale(2);
+}
+
+.radio-input {
+    margin-right: 8px;
+    accent-color: #42b983;
+    transform: scale(1.5);
+}
+
+.radio-group {
+    margin-right: 20px;
+}
 </style>
