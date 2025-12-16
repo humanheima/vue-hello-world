@@ -42,6 +42,8 @@ export default {
             <component :is="currentTab" class="tab"></component>
         </Transition>
 
+        <br>
+        
         <button @click="handleClick">切换tab</button>
 
     </div>

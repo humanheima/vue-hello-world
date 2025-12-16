@@ -238,6 +238,12 @@ export default {
             alert("收到自定义事件:" + message)
         },
 
+        // 处理第二个自定义事件
+        handleEvent2(message) {
+            console.log('event2:', message)
+            alert("收到第二个自定义事件:" + message)
+        },
+
         parentClick() {
             alert('parentClick')
         }
@@ -297,9 +303,12 @@ export default {
                     @click="parentClick" />
                 <AttributeOutComponent v-if="currentComponent === 'AttributeOutComponent'" class="btn_class_one"
                     @click="parentClick" />
-                <EventCustom v-if="currentComponent === 'EventCustom'" @custom_devent="handleCustomEvent" />
+                <EventCustom v-if="currentComponent === 'EventCustom'" @custom_devent="handleCustomEvent" 
+                    @event2="handleEvent2"
+                />
                 <VmodelComponent v-if="currentComponent === 'VmodelComponent'" v-model:model-value="message"
                     v-model:model-value2="name" />
+                    
                 <CapitalizeComponent v-if="currentComponent === 'CapitalizeComponent'"
                     v-model.modelValue.capitalize="myText" />
                 <DynamicComponentTest v-if="currentComponent === 'DynamicComponentTest'" />

@@ -48,7 +48,8 @@ export default {
         <br>
         <input v-model="searchText" />
     </div>
-    <hr>
+
+    <hr class="hr-class">
 
     <div>
         <span>v-model 在组件上的用法</span>
@@ -59,13 +60,43 @@ export default {
 
     </div>
 
+    <hr class="hr-class">
+
     <div>
         另一种在组件内实现 v-model 的方式是使用一个可写的，同时具有 getter 和 setter 的 computed 属性。get 方法需返回 modelValue prop，而 set 方法需触发相应的事件：
 
-        <br>
+        <hr class="hr-class">
+
         <span>modelValue2 = {{ modelValue2 }}</span>
         <br>
-        <input v-model="value" />
+        <input v-model="value" class="styled-input" />
 
     </div>
 </template>
+
+<style scoped>
+.hr-class {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.styled-input {
+    background: #f5f5f5;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.styled-input:focus {
+    background: #ffffff;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+</style>

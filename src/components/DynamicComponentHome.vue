@@ -1,6 +1,6 @@
 <!-- 动态组件 -->
 <template>
-  <div class="tab">
+  <div>
     Home component
 
 

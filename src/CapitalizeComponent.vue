@@ -16,6 +16,8 @@ export default {
             if (this.modelModifiers.capitalize) {
                 value = value.charAt(0).toUpperCase() + value.slice(1)
             }
+            // 发出更新事件
+            //用户输入 → emitValue() → $emit('update:modelValue', value) → 父组件更新数据 → modelValue prop 更新 → 组件重新渲染
             this.$emit('update:modelValue', value)
         }
     }

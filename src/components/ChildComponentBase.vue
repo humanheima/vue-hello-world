@@ -20,8 +20,35 @@ export default {
 </script>
 
 <template>
-    <h2>子组件基础</h2>
-    <p>{{ message }}</p>
-    <p>{{ count }}</p>
-    <button @click="increment">增加count</button>
+    <div class="bg">
+        <h2>我是子组件</h2>
+        <p>{{ message }}</p>
+        <p>{{ count }}</p>
+        <button class="btn" @click="increment">增加count</button>
+    </div>
 </template>
+
+<style scoped>
+    
+.bg {
+    background-color: gray;
+    padding: 10px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.18s ease, transform 0.08s ease;
+}
+.btn:hover {
+    background-color: #43a047;
+}
+.btn:active {
+    transform: translateY(1px);
+}
+</style>

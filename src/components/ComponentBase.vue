@@ -20,10 +20,10 @@ export default {
 
             validData: {
                 title: 'My journey with Vue',
-                content: 'This is my journey with Vue',
+                content: 'This is my journey with Vue haha',
                 likes: 10,
                 propE: {
-                    message: 'hello world'
+                    message: 'hello world，hh'
                 },
                 propF: 'success',
                 propG: function () {
@@ -66,8 +66,8 @@ export default {
     
 
     <div>
-        包括：
-        <div>
+        功能包括：
+        <div class="marginleft-8">
             <ul>
                 <li>引用子组件，父组件使用 props向子组件传值，</li>
                 <li>子组件eimts事件，向父组件传值</li>
@@ -76,12 +76,13 @@ export default {
         </div>
 
     </div>
-    <hr>
+    <hr class="styled-hr">
     <div>
         <h2>引用子组件</h2>
         <ChildComponentBase></ChildComponentBase>
     </div>
-    <hr>
+    <hr class="styled-hr">
+
     <div v-bind:style="{ fontSize: postFontSize + 'em' }">
         <h3>测试传递父组件向子组件传值，使用 props</h3>
         <!--  @enlarge-text="postFontSize += 0.1" 监听子组件发出的，enlarge-text事件，收到事件，postFontSize增加 -->
@@ -93,7 +94,8 @@ export default {
 
         </div>
 
-        <hr>
+        <hr class="styled-hr">
+
         <div>
             <span>使用一个对象绑定多个 prop，和上面的使用v-for构建BlogPost 是等价的</span>
 
@@ -104,13 +106,13 @@ export default {
 
     </div>
 
-    <hr class="styled-hr">
     <div>
         <span>测试 props 验证</span>
 
         <PropValidTest v-bind="validData"></PropValidTest>
 
     </div>
+
 </template>
 
 <style scoped>
@@ -120,4 +122,9 @@ export default {
     background: #e6e6e6;
     margin: 16px 0;
 }
+
+.marginleft-8 {
+    margin-left: 8px;
+}
+
 </style>

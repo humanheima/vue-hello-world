@@ -24,8 +24,25 @@ export default {
 </script>
 
 <template>
-    <h4>父组件传递的title {{ title }}</h4>
-    <p>父组件传递的content {{ content }}</p>
-    <button @click="$emit('enlarge-text',0.1)"> Enlarge text</button>
-    <button @click="$emit('mini-text',0.2)"> Mini text</button>
+    <div class="bg">
+        <h4>父组件传递的title {{ title }}</h4>
+        <p>父组件传递的content {{ content }}</p>
+        <button @click="$emit('enlarge-text',0.1)"> Enlarge text</button>
+        <button @click="$emit('mini-text',0.2)"> Mini text</button>
+    </div>
+     <hr class="styled-hr">
 </template>
+
+<style scoped>
+.bg {
+    background-color: gray;
+    padding: 10px;
+}
+.styled-hr {
+    border: none;
+    height: 1px;
+    background: #e6e6e6;
+    margin: 16px 0;
+}
+</style>
+

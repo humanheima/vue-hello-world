@@ -61,8 +61,19 @@ export default {
 </script>
 
 <template>
-    <p> title: {{ title }} , content: {{ content }} , likes: {{ likes }}</p>
-    <p>propE: {{ propE.message }}</p>
-    <p>propF: {{ propF }}</p>
-    <p>propG: {{ propG() }}</p>
+    <div class="bg">
+        <p> title: {{ title }} , content: {{ content }} , likes: {{ likes }}</p>
+        <p>propE: {{ propE.message }}</p>
+        <p>propF: {{ propF }}</p>
+        <p>propG: {{ propG() }}</p>
+    </div>
 </template>
+
+<style scoped>
+.bg {
+    background-color: #f0f8ff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+</style>

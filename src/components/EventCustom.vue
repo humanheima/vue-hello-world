@@ -39,9 +39,15 @@ export default {
     },
     methods: {
 
+
         submit() {
             // 触发自定义事件，第一个参数是事件名，第二个参数是传递的数据
             this.$emit('custom_devent', 'hellxo world')
+        },
+
+        submit2() {
+            // 触发自定义事件，第一个参数是事件名，第二个参数是传递的数据
+            this.$emit('event2', '第二个事件')
         },
 
     }
@@ -53,5 +59,9 @@ export default {
     <div>
         <p>自定义事件</p>
         <button @click="submit()">发送自定义事件</button>
+    </div>
+    <div>
+        <p>自定义事件2</p>
+        <button @click="submit2()">发送自定义事件2</button>
     </div>
 </template>

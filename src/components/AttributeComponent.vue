@@ -5,7 +5,7 @@ export default {
 
     //如果你不想让一个组件自动继承 attribute，你可以在组件的选项中设置 inheritAttrs: false。
     //这样，父组件传递给这个组件的 attribute（除了 class 和 style）
-    //就不会被添加到这个组件的根元素上。注意是不会添加到根元素上，在这个例子中，就是不会添加到 button 上。
+    
     inheritAttrs: false,
     methods: {
         selfClick() {
@@ -29,7 +29,7 @@ export default {
         <br />
         <!-- 外部传递的class样式 会和 btn_class 合并 -->
         <!-- 外部传递的onClick 也会合并 -->
-        <button class="btn_class" @click="selfClick" v-bind="$attrs">Attributes</button>
+        <button class="btn" @click="selfClick" v-bind="$attrs">Attributes</button>
     </div>
 </template>
 
