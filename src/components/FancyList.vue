@@ -24,7 +24,7 @@ export default {
         <li v-if="!items.length">
             Loading...
         </li>
-        <li v-for="item in items">
+        <li v-for="item in items" :key="item.id">
 
             <!-- 传递名为item的数据 -->
             <slot name="item" v-bind="item" />
