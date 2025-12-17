@@ -12,6 +12,7 @@
     "gsap": "^3.12.4",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
+    "vant": "^4.9.22",
     "velocity-animate": "^2.0.6",
     "vue": "^3.2.13",
     "vue3-eventbus": "^2.0.0"

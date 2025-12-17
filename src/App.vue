@@ -56,6 +56,7 @@ import TestLayout2 from './components/TestLayout2.vue';
 import TestUseBothTransitionAndAnimate from './components/TestUseBothTransitionAndAnimate.vue';
 import TestJsAnimation from './components/test_animation/TestJsAnimation.vue';
 import TestJsAnimationUseVelocity from './components/test_animation/TestJsAnimationUseVelocity.vue';
+import VantDemo from './components/VantDemo.vue';
 
 export default {
     name: 'App',
@@ -141,6 +142,12 @@ export default {
                     ]
                 },
                 {
+                    title: 'UI 组件库',
+                    items: [
+                        { name: 'VantDemo', component: 'VantDemo', desc: 'Vant 移动端组件库演示' },
+                    ]
+                },
+                {
                     title: '路由和状态管理',
                     items: [
                         { name: 'SimpleRouterTest', component: 'SimpleRouterTest', desc: '简单路由' },
@@ -219,6 +226,7 @@ export default {
         TestUseBothTransitionAndAnimate,
         TestJsAnimation,
         TestJsAnimationUseVelocity,
+        VantDemo,
     },
 
     methods: {
@@ -388,6 +396,9 @@ export default {
                 <TestUseBothTransitionAndAnimate v-if="currentComponent === 'TestUseBothTransitionAndAnimate'" />
                 <TestJsAnimation v-if="currentComponent === 'TestJsAnimation'" />
                 <TestJsAnimationUseVelocity v-if="currentComponent === 'TestJsAnimationUseVelocity'" />
+
+                <!-- UI 组件库 -->
+                <VantDemo v-if="currentComponent === 'VantDemo'" />
 
                 <!-- 路由和状态管理 -->
                 <SimpleRouterTest v-if="currentComponent === 'SimpleRouterTest'" />
