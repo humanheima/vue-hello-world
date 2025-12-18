@@ -57,6 +57,8 @@ import TestUseBothTransitionAndAnimate from './components/TestUseBothTransitionA
 import TestJsAnimation from './components/test_animation/TestJsAnimation.vue';
 import TestJsAnimationUseVelocity from './components/test_animation/TestJsAnimationUseVelocity.vue';
 import VantDemo from './components/VantDemo.vue';
+import FlexLayoutDemo from './components/FlexLayoutDemo.vue';
+import FlexScalingAdvanced from './components/FlexScalingAdvanced.vue';
 
 export default {
     name: 'App',
@@ -148,6 +150,13 @@ export default {
                     ]
                 },
                 {
+                    title: 'CSS 布局演示',
+                    items: [
+                        { name: 'FlexLayoutDemo', component: 'FlexLayoutDemo', desc: 'Flex 弹性布局完整演示' },
+                        { name: 'FlexScalingAdvanced', component: 'FlexScalingAdvanced', desc: 'Flex 缩放比例深度解析' },
+                    ]
+                },
+                {
                     title: '路由和状态管理',
                     items: [
                         { name: 'SimpleRouterTest', component: 'SimpleRouterTest', desc: '简单路由' },
@@ -227,6 +236,8 @@ export default {
         TestJsAnimation,
         TestJsAnimationUseVelocity,
         VantDemo,
+        FlexLayoutDemo,
+        FlexScalingAdvanced,
     },
 
     methods: {
@@ -399,6 +410,10 @@ export default {
 
                 <!-- UI 组件库 -->
                 <VantDemo v-if="currentComponent === 'VantDemo'" />
+
+                <!-- CSS 布局演示 -->
+                <FlexLayoutDemo v-if="currentComponent === 'FlexLayoutDemo'" />
+                <FlexScalingAdvanced v-if="currentComponent === 'FlexScalingAdvanced'" />
 
                 <!-- 路由和状态管理 -->
                 <SimpleRouterTest v-if="currentComponent === 'SimpleRouterTest'" />
