@@ -34,6 +34,7 @@ import DependencyInjectionChild from './components/DependencyInjectionChild.vue'
 import { computed } from 'vue';
 import CustomDirectives from './components/CustomDirectives.vue';
 import TransitionTest1_0 from './components/TransitionTest1_0.vue';
+import TransitionBase from './components/TransitionBase.vue';
 import TransitionTest1_1 from './components/TransitionTest1_1.vue';
 import TransitionTest1_2 from './components/TransitionTest1_2.vue';
 import TransitionTest1_3 from './components/TransitionTest1_3.vue';
@@ -131,6 +132,7 @@ export default {
                 {
                     title: '动画和过渡',
                     items: [
+                        { name: 'TransitionBase', component: 'TransitionBase', desc: 'CSS动画基础教程' },
                         { name: 'TransitionTest1_0', component: 'TransitionTest1_0', desc: '基础过渡' },
                         { name: 'TransitionTest1_1', component: 'TransitionTest1_1', desc: '过渡类名' },
                         { name: 'TransitionTest1_2', component: 'TransitionTest1_2', desc: '过渡钩子' },
@@ -217,6 +219,7 @@ export default {
         FancyList,
         DependencyInjectionChild,
         CustomDirectives,
+        TransitionBase,
         TransitionTest1_0,
         TransitionTest1_1,
         TransitionTest1_2,
@@ -409,6 +412,7 @@ export default {
                 <KeepAliveTest2 v-if="currentComponent === 'KeepAliveTest2'" />
 
                 <!-- 动画和过渡 -->
+                <TransitionBase v-if="currentComponent === 'TransitionBase'" />
                 <TransitionTest1_0 v-if="currentComponent === 'TransitionTest1_0'" />
                 <TransitionTest1_1 v-if="currentComponent === 'TransitionTest1_1'" />
                 <TransitionTest1_2 v-if="currentComponent === 'TransitionTest1_2'" />
