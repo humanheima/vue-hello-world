@@ -68,6 +68,8 @@ export default {
         return {
             // 当前活跃的组件
             currentComponent: null,
+            // 保存首页滚动位置
+            homeScrollPosition: 0,
             // 原有的数据
             message: 'hello Vue.js!',
             name: '组件另一种实现v-model的方式',
@@ -244,14 +246,22 @@ export default {
     },
 
     methods: {
-        // 显示指定组件
+        // 显示组件
         showComponent(componentName) {
+            // 保存当前首页的滚动位置
+            if (!this.currentComponent) {
+                this.homeScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            }
             this.currentComponent = componentName;
         },
 
         // 返回首页
         goHome() {
             this.currentComponent = null;
+            // 使用 nextTick 确保DOM更新完成后再恢复滚动位置
+            this.$nextTick(() => {
+                window.scrollTo(0, this.homeScrollPosition);
+            });
         },
 
         // 处理自定义事件
