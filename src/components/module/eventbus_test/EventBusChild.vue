@@ -1,6 +1,6 @@
 <script>
 
-import {emitter} from './UseEmitter.js';
+import { emitter } from './UseEmitter.js';
 
 
 export default {
@@ -14,19 +14,10 @@ export default {
 
         changeContent() {
             //const emitter = getEmitter();
-            this.content = 'Changed This is my journey with Vue'
-            emitter.emit('my-event',  this.content);
+            //this.content = 'Changed This is my journey with Vue'
+            emitter.emit('my-event', "hahah Changed This is my journey with Vue");
         },
-
-        listenEvent() {
-            emitter.on('my-event', (content) => {
-                console.log('EventBusChild: ', content);
-            });
-        }
     },
-    mounted() {
-        this.listenEvent();
-    }
 
 }
 

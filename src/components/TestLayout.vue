@@ -19,9 +19,9 @@ export default {
 
 <style scoped>
 .center {
-    line-height: 200px;
     height: 200px;
     border: 3px solid green;
+    background: #293b33;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -41,12 +41,14 @@ export default {
     visibility: visible;
     opacity: 1;
 }
+
 .center button {
     padding: 4px 16px;
     border: none;
     background: #42b983;
     color: white;
     cursor: pointer;
+    line-height: normal;
     margin-top: 10px;
 }
 </style>

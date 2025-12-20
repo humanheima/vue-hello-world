@@ -160,39 +160,7 @@ Velocity.js 动画库演示
 // 3. 或者通过 CDN 在 index.html 中引入
 
 // import { Velocity } from 'velocity-animate'  // 可能的导入方式1
-// import Velocity from 'velocity-animate'       // 可能的导入方式2
-
-// 临时解决方案：检查 Velocity 是否可用，如果不可用则使用原生动画
-const Velocity = window.Velocity || function(element, properties, options = {}) {
-    console.warn('Velocity.js 未正确加载，使用降级动画')
-    
-    // 简单的降级动画实现
-    const duration = options.duration || 1000
-    const complete = options.complete || (() => {})
-    
-    // 应用样式变化
-    Object.keys(properties).forEach(prop => {
-        if (prop === 'scale') {
-            element.style.transform = `scale(${properties[prop]})`
-        } else if (prop === 'translateY') {
-            const currentTransform = element.style.transform || ''
-            element.style.transform = currentTransform.replace(/translateY\([^)]*\)/, '') + ` translateY(${properties[prop]}px)`
-        } else if (prop === 'rotateZ') {
-            const currentTransform = element.style.transform || ''
-            element.style.transform = currentTransform.replace(/rotateZ\([^)]*\)/, '') + ` rotateZ(${properties[prop]})`
-        } else {
-            element.style[prop] = properties[prop]
-        }
-    })
-    
-    element.style.transition = `all ${duration}ms ${options.easing || 'ease'}`
-    
-    // 模拟动画完成回调
-    setTimeout(complete, duration)
-    
-    // 返回 Promise 以支持链式调用
-    return Promise.resolve()
-}
+ import Velocity from 'velocity-animate'       // 可能的导入方式2
 
 export default {
     name: 'TestJsAnimationUseVelocity',
