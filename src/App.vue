@@ -46,6 +46,7 @@ import TransitionTest5 from './components/TransitionTest5.vue';
 import TransitionGroupTest from './components/TransitionGroupTest.vue';
 import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
 import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
+import KeepAliveTest2 from './components/keep_alive/KeepAliveTest2.vue';
 import TeleportTest from './components/TeleportTest.vue';
 import SimpleRouterTest from './components/router/SimpleRouterTest.vue';
 import ComponentStateManage from './components/state_manage/ComponentStatusManage.vue';
@@ -121,7 +122,8 @@ export default {
                         { name: 'DependencyInjectionChild', component: 'DependencyInjectionChild', desc: '依赖注入' },
                         { name: 'CustomDirectives', component: 'CustomDirectives', desc: '自定义指令' },
                         { name: 'TeleportTest', component: 'TeleportTest', desc: 'Teleport 传送' },
-                        { name: 'KeepAliveTest', component: 'KeepAliveTest', desc: 'KeepAlive 缓存' },
+                        { name: 'KeepAliveTest', component: 'KeepAliveTest', desc: 'KeepAlive 基础缓存' },
+                        { name: 'KeepAliveTest2', component: 'KeepAliveTest2', desc: 'KeepAlive 高级功能' },
                     ]
                 },
                 {
@@ -225,6 +227,7 @@ export default {
         TransitionGroupTest,
         TransitionGroupTest2,
         KeepAliveTest,
+        KeepAliveTest2,
         TeleportTest,
         SimpleRouterTest,
         ComponentStateManage,
@@ -322,12 +325,11 @@ export default {
                     @click="parentClick" />
                 <AttributeOutComponent v-if="currentComponent === 'AttributeOutComponent'" class="btn_class_one"
                     @click="parentClick" />
-                <EventCustom v-if="currentComponent === 'EventCustom'" @custom_devent="handleCustomEvent" 
-                    @event2="handleEvent2"
-                />
+                <EventCustom v-if="currentComponent === 'EventCustom'" @custom_devent="handleCustomEvent"
+                    @event2="handleEvent2" />
                 <VmodelComponent v-if="currentComponent === 'VmodelComponent'" v-model:model-value="message"
                     v-model:model-value2="name" />
-                    
+
                 <CapitalizeComponent v-if="currentComponent === 'CapitalizeComponent'"
                     v-model.modelValue.capitalize="myText" />
                 <DynamicComponentTest v-if="currentComponent === 'DynamicComponentTest'" />
@@ -384,13 +386,17 @@ export default {
                 <div v-if="currentComponent === 'DependencyInjectionChild'">
                     <DependencyInjectionChild />
                     <br />
-                    <span>父组件在输入框修改注入的数据</span>
-                    <input type="text" v-model="reactInjectValue" />
+                    <div class="parenet_bg">
+                       
+                        <span>父组件在输入框修改注入的数据</span>
+                        <input type="text" v-model="reactInjectValue" />
+                    </div>
                 </div>
 
                 <CustomDirectives v-if="currentComponent === 'CustomDirectives'" />
                 <TeleportTest v-if="currentComponent === 'TeleportTest'" />
                 <KeepAliveTest v-if="currentComponent === 'KeepAliveTest'" />
+                <KeepAliveTest2 v-if="currentComponent === 'KeepAliveTest2'" />
 
                 <!-- 动画和过渡 -->
                 <TransitionTest1_0 v-if="currentComponent === 'TransitionTest1_0'" />
@@ -449,6 +455,13 @@ export default {
     color: #2c3e50;
     min-height: 100vh;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.parenet_bg {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* 索引页面样式 */

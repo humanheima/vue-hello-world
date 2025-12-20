@@ -1,5 +1,5 @@
 <script>
-import {myInjectionKey} from './key.js';
+import { myInjectionKey } from './key.js';
 
 
 export default {
@@ -32,9 +32,22 @@ export default {
         <h1>依赖注入</h1>
         <p>Message to grand child: {{ injectValue }}</p>
         <p>Message to grand child:别名 {{ localInjectValue2 }}</p>
+        <hr class="hr" />
+
         <p>Message to grand child:响应式数据，父组件改变了以后，这里会发生变化：<br>
-             {{ reactInjectValue }}</p>
+            {{ reactInjectValue }}</p>
+
+            <hr class="hr" />
 
         <p>使用 Symbol 作注入名 Message to grand child: {{ injectValue3 }}</p>
+
     </div>
+    
 </template>
+
+<style scoped>
+.hr {
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+}
+</style>
