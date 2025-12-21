@@ -22,6 +22,7 @@
             <Watcher v-if="componentInfo.component === 'Watcher'" />
             <TemplateReference v-if="componentInfo.component === 'TemplateReference'" />
             <VueDirectivesGuide v-if="componentInfo.component === 'VueDirectivesGuide'" />
+            <EventMechanismGuide v-if="componentInfo.component === 'EventMechanismGuide'" />
 
             <!-- 组件基础 -->
             <ComponentBase v-if="componentInfo.component === 'ComponentBase'" />
@@ -194,6 +195,7 @@ import VantDemo from './VantDemo.vue';
 import FlexLayoutDemo from './FlexLayoutDemo.vue';
 import FlexScalingAdvanced from './FlexScalingAdvanced.vue';
 import VueDirectivesGuide from './VueDirectivesGuide.vue';
+import EventMechanismGuide from './EventMechanismGuide.vue';
 
 export default {
     name: 'ComponentDetail',
@@ -268,6 +270,7 @@ export default {
         FlexLayoutDemo,
         FlexScalingAdvanced,
         VueDirectivesGuide,
+        EventMechanismGuide,
     },
     methods: {
         goBack() {
