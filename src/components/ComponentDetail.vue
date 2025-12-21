@@ -21,6 +21,7 @@
             <LifeCycle v-if="componentInfo.component === 'LifeCycle'" />
             <Watcher v-if="componentInfo.component === 'Watcher'" />
             <TemplateReference v-if="componentInfo.component === 'TemplateReference'" />
+            <VueDirectivesGuide v-if="componentInfo.component === 'VueDirectivesGuide'" />
 
             <!-- 组件基础 -->
             <ComponentBase v-if="componentInfo.component === 'ComponentBase'" />
@@ -192,6 +193,7 @@ import TestJsAnimationUseVelocity from './test_animation/TestJsAnimationUseVeloc
 import VantDemo from './VantDemo.vue';
 import FlexLayoutDemo from './FlexLayoutDemo.vue';
 import FlexScalingAdvanced from './FlexScalingAdvanced.vue';
+import VueDirectivesGuide from './VueDirectivesGuide.vue';
 
 export default {
     name: 'ComponentDetail',
@@ -265,6 +267,7 @@ export default {
         VantDemo,
         FlexLayoutDemo,
         FlexScalingAdvanced,
+        VueDirectivesGuide,
     },
     methods: {
         goBack() {

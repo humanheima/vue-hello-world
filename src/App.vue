@@ -43,6 +43,7 @@ export default {
                         { name: 'LifeCycle', component: 'LifeCycle', desc: '生命周期' },
                         { name: 'Watcher', component: 'Watcher', desc: '监听器' },
                         { name: 'TemplateReference', component: 'TemplateReference', desc: '模板引用' },
+                        { name: 'VueDirectivesGuide', component: 'VueDirectivesGuide', desc: 'Vue 指令完整指南' },
                     ]
                 },
                 {
