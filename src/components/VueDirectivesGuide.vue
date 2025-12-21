@@ -124,27 +124,47 @@
             <div class="directive-demo">
                 <h3>v-on (@) - 事件监听</h3>
                 
-                <h4>1. 基础事件处理</h4>
-                <div class="demo-container">
-                    <button @click="handleClick">普通点击</button>
-                    <button @click="handleClickWithParams('参数1', '参数2')">带参数点击</button>
-                    <button @click="handleClickWithEvent($event)">传递事件对象</button>
-                </div>
+                <div class="event-layout">
+                    <!-- 左侧：事件演示 -->
+                    <div class="event-demos">
+                        <h4>1. 基础事件处理</h4>
+                        <div class="demo-container">
+                            <button @click="handleClick">普通点击</button>
+                            <button @click="handleClickWithParams('参数1', '参数2')">带参数点击</button>
+                            <button @click="handleClickWithEvent($event)">传递事件对象</button>
+                        </div>
 
-                <h4>2. 事件修饰符</h4>
-                <div class="demo-container">
-                    <button @click.once="handleOnce">只触发一次</button>
-                    <button @click.prevent="handlePrevent">阻止默认行为</button>
-                    <div class="event-area" @click="handleAreaClick">
-                        <button @click.stop="handleStopPropagation">阻止冒泡</button>
+                        <h4>2. 事件修饰符</h4>
+                        <div class="demo-container">
+                            <button @click.once="handleOnce">只触发一次</button>
+                            <button @click.prevent="handlePrevent">阻止默认行为</button>
+                            <div class="event-area" @click="handleAreaClick">
+                                <button @click.stop="handleStopPropagation">阻止冒泡</button>
+                            </div>
+                        </div>
+
+                        <h4>3. 按键修饰符</h4>
+                        <div class="demo-container">
+                            <input @keyup.enter="handleEnter" placeholder="按 Enter 键" v-model="keyInput">
+                            <input @keyup.tab="handleTab" placeholder="按 Tab 键" v-model="keyInput2">
+                            <input @keyup.ctrl.c="handleCtrlC" placeholder="按 Ctrl+C" v-model="keyInput3">
+                        </div>
                     </div>
-                </div>
 
-                <h4>3. 按键修饰符</h4>
-                <div class="demo-container">
-                    <input @keyup.enter="handleEnter" placeholder="按 Enter 键" v-model="keyInput">
-                    <input @keyup.tab="handleTab" placeholder="按 Tab 键" v-model="keyInput2">
-                    <input @keyup.ctrl.c="handleCtrlC" placeholder="按 Ctrl+C" v-model="keyInput3">
+                    <!-- 右侧：事件日志 -->
+                    <div class="event-log-panel">
+                        <h4>📋 实时事件日志</h4>
+                        <div class="log-container">
+                            <div v-for="log in eventLogs" :key="log.id" class="log-item">
+                                <span class="log-time">{{ log.time }}</span>
+                                <span class="log-message">{{ log.message }}</span>
+                            </div>
+                            <div v-if="eventLogs.length === 0" class="no-logs">
+                                暂无事件记录，开始与左侧的按钮和输入框交互吧！
+                            </div>
+                        </div>
+                        <button @click="clearLogs" class="clear-btn">清空日志</button>
+                    </div>
                 </div>
 
                 <div class="code-explanation">
@@ -347,18 +367,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- 事件日志 -->
-        <div class="event-log">
-            <h3>📋 事件日志</h3>
-            <div class="log-container">
-                <div v-for="log in eventLogs" :key="log.id" class="log-item">
-                    <span class="log-time">{{ log.time }}</span>
-                    <span class="log-message">{{ log.message }}</span>
-                </div>
-            </div>
-            <button @click="clearLogs">清空日志</button>
-        </div>
     </div>
 </template>
 
@@ -618,6 +626,86 @@ export default {
     font-family: 'Courier New', monospace;
 }
 
+/* 事件处理左右布局 */
+.event-layout {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 15px;
+}
+
+.event-demos {
+    flex: 2;
+}
+
+.event-log-panel {
+    flex: 1;
+    min-width: 300px;
+}
+
+.event-log-panel h4 {
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.log-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 15px;
+    min-height: 200px;
+}
+
+.log-item {
+    display: flex;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.log-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.log-time {
+    color: #6c757d;
+    font-size: 12px;
+    min-width: 80px;
+    margin-right: 10px;
+}
+
+.log-message {
+    flex: 1;
+    color: #495057;
+    font-size: 13px;
+}
+
+.no-logs {
+    color: #6c757d;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #dee2e6;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.clear-btn {
+    width: 100%;
+    background: #6c757d !important;
+    font-size: 13px;
+    padding: 8px 12px;
+}
+
+.clear-btn:hover {
+    background: #5a6268 !important;
+}
+
 /* 特定演示样式 */
 .show-demo {
     background: #d4edda;
@@ -707,54 +795,6 @@ export default {
     border-radius: 4px;
 }
 
-.event-log {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e1e8ed;
-}
-
-.event-log h3 {
-    color: #34495e;
-    margin-bottom: 15px;
-}
-
-.log-container {
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #e9ecef;
-    border-radius: 5px;
-    padding: 10px;
-    background: #f8f9fa;
-    margin-bottom: 15px;
-}
-
-.log-item {
-    display: flex;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.log-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.log-time {
-    color: #6c757d;
-    font-size: 12px;
-    min-width: 80px;
-    margin-right: 10px;
-}
-
-.log-message {
-    flex: 1;
-    color: #495057;
-}
-
 button {
     background: #42b883;
     color: white;
@@ -807,6 +847,21 @@ button:active {
     .form-row label {
         min-width: auto;
         margin-bottom: 5px;
+    }
+    
+    /* 移动端事件布局改为上下排列 */
+    .event-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .event-log-panel {
+        min-width: auto;
+    }
+    
+    .log-container {
+        min-height: 150px;
+        max-height: 200px;
     }
 }
 </style>
