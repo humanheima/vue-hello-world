@@ -1,76 +1,25 @@
-<!-- eslint-disable vue/no-unused-components -->
-
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-// eslint-disable-next-line
-import AppCounter from './components/AppCounter.vue'
-
-import TestCompositionApi from './components/TestCompositionApi.vue';
-import TestOptionApi from './components/TestOptionApi.vue';
-import ComputeAttribute from './components/ComputeAttribute.vue';
-import ClassStyleBind from './components/ClassStyleBind.vue';
-import ConditionRender from './components/ConditionRender.vue';
-import ListRender from './components/ListRender.vue';
-import EventHandle from './components/EventHandle.vue';
-import FormInputBind from './components/FormInputBind.vue';
-import LifeCycle from './components/LifeCycle.vue';
-import Watcher from './components/Watcher.vue';
-import TemplateReference from './components/TemplateReference.vue';
-import ComponentBase from './components/ComponentBase.vue';
-import ChildComponentBase from './components/ChildComponentBase.vue';
-import AlertBoxSlotTest from './components/AlertBoxSlotTest.vue';
-import DynamicComponentTest from './components/DynamicComponentTest.vue';
-import EventCustom from './components/EventCustom.vue';
-import VmodelComponent from './components/VmodelComponent.vue';
-import CapitalizeComponent from './CapitalizeComponent.vue';
-import AttributeComponent from './components/AttributeComponent.vue';
-import AttributeOutComponent from './components/AttributeOutComponent.vue';
-import SlotTest from './components/SlotTest.vue';
-import NamedSlotTest from './components/NamedSlotTest.vue';
-import ScopedSlotTest from './components/ScopedSlotTest.vue';
-import FancyList from './components/FancyList.vue';
 import { myInjectionKey } from './components/key.js';
-import DependencyInjectionChild from './components/DependencyInjectionChild.vue';
 import { computed } from 'vue';
-import CustomDirectives from './components/CustomDirectives.vue';
-import TransitionTest1_0 from './components/TransitionTest1_0.vue';
-import TransitionBase from './components/TransitionBase.vue';
-import TransitionTest1_1 from './components/TransitionTest1_1.vue';
-import TransitionTest1_2 from './components/TransitionTest1_2.vue';
-import TransitionTest1_3 from './components/TransitionTest1_3.vue';
-import TestUseAnimateCSSLib from './components/TestUseAnimateCSSLib.vue';
-
-import TransitionTest2 from './components/TransitionTest2.vue';
-import TransitionTest3 from './components/TransitionTest3.vue';
-import TransitionTest4 from './components/TransitionTest4.vue';
-import TransitionTest5 from './components/TransitionTest5.vue';
-import TransitionGroupTest from './components/TransitionGroupTest.vue';
-import TransitionGroupTest2 from './components/TransitionGroupTest2.vue';
-import KeepAliveTest from './components/keep_alive/KeepAliveTest.vue';
-import KeepAliveTest2 from './components/keep_alive/KeepAliveTest2.vue';
-import TeleportTest from './components/TeleportTest.vue';
-import SimpleRouterTest from './components/router/SimpleRouterTest.vue';
-import ComponentStateManage from './components/state_manage/ComponentStatusManage.vue';
-import TbodyComponent from './components/module/TbodyComponent.vue';
-import EventBusParent from './components/module/eventbus_test/EventBusParent.vue';
-import TestLayout from './components/TestLayout.vue';
-import TestLayout2 from './components/TestLayout2.vue';
-import TestUseBothTransitionAndAnimate from './components/TestUseBothTransitionAndAnimate.vue';
-import TestJsAnimation from './components/test_animation/TestJsAnimation.vue';
-import TestJsAnimationUseVelocity from './components/test_animation/TestJsAnimationUseVelocity.vue';
-import VantDemo from './components/VantDemo.vue';
-import FlexLayoutDemo from './components/FlexLayoutDemo.vue';
-import FlexScalingAdvanced from './components/FlexScalingAdvanced.vue';
+import CategoryPage from './components/CategoryPage.vue';
+import ComponentDetail from './components/ComponentDetail.vue';
 
 export default {
     name: 'App',
 
     data() {
         return {
-            // 当前活跃的组件
-            currentComponent: null,
-            // 保存首页滚动位置
-            homeScrollPosition: 0,
+            // 页面状态: 'home' | 'category' | 'detail'
+            currentPage: 'home',
+            // 当前选中的分类
+            currentCategory: null,
+            // 当前选中的组件信息
+            currentComponentInfo: null,
+            // 保存各页面的滚动位置
+            scrollPositions: {
+                home: 0,
+                category: 0
+            },
             // 原有的数据
             message: 'hello Vue.js!',
             name: '组件另一种实现v-model的方式',
@@ -192,95 +141,53 @@ export default {
     },
 
     components: {
-        AppCounter,
-        TestCompositionApi,
-        TestOptionApi,
-        ComputeAttribute,
-        ClassStyleBind,
-        ConditionRender,
-        ListRender,
-        EventHandle,
-        FormInputBind,
-        LifeCycle,
-        Watcher,
-        TemplateReference,
-        ComponentBase,
-        ChildComponentBase,
-        AlertBoxSlotTest,
-        DynamicComponentTest,
-        EventCustom,
-        VmodelComponent,
-        CapitalizeComponent,
-        AttributeComponent,
-        AttributeOutComponent,
-        SlotTest,
-        NamedSlotTest,
-        ScopedSlotTest,
-        FancyList,
-        DependencyInjectionChild,
-        CustomDirectives,
-        TransitionBase,
-        TransitionTest1_0,
-        TransitionTest1_1,
-        TransitionTest1_2,
-        TransitionTest1_3,
-        TestUseAnimateCSSLib,
-        TransitionTest2,
-        TransitionTest3,
-        TransitionTest4,
-        TransitionTest5,
-        TransitionGroupTest,
-        TransitionGroupTest2,
-        KeepAliveTest,
-        KeepAliveTest2,
-        TeleportTest,
-        SimpleRouterTest,
-        ComponentStateManage,
-        TbodyComponent,
-        EventBusParent,
-        TestLayout,
-        TestLayout2,
-        TestUseBothTransitionAndAnimate,
-        TestJsAnimation,
-        TestJsAnimationUseVelocity,
-        VantDemo,
-        FlexLayoutDemo,
-        FlexScalingAdvanced,
+        CategoryPage,
+        ComponentDetail
     },
 
     methods: {
-        // 显示组件
-        showComponent(componentName) {
+        // 显示分类页面
+        showCategory(category) {
             // 保存当前首页的滚动位置
-            if (!this.currentComponent) {
-                this.homeScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            }
-            this.currentComponent = componentName;
-        },
-
-        // 返回首页
-        goHome() {
-            this.currentComponent = null;
-            // 使用 nextTick 确保DOM更新完成后再恢复滚动位置
+            this.scrollPositions.home = window.pageYOffset || document.documentElement.scrollTop;
+            this.currentCategory = category;
+            this.currentPage = 'category';
+            // 滚动到顶部
             this.$nextTick(() => {
-                window.scrollTo(0, this.homeScrollPosition);
+                window.scrollTo(0, 0);
             });
         },
 
-        // 处理自定义事件
-        handleCustomEvent(message) {
-            console.log(message) // 输出 'hello world'
-            alert("收到自定义事件:" + message)
+        // 显示组件详情
+        showComponentDetail(componentInfo) {
+            // 保存分类页的滚动位置
+            this.scrollPositions.category = window.pageYOffset || document.documentElement.scrollTop;
+            this.currentComponentInfo = componentInfo;
+            this.currentPage = 'detail';
+            // 滚动到顶部
+            this.$nextTick(() => {
+                window.scrollTo(0, 0);
+            });
         },
 
-        // 处理第二个自定义事件
-        handleEvent2(message) {
-            console.log('event2:', message)
-            alert("收到第二个自定义事件:" + message)
+        // 从分类页返回首页
+        backToHome() {
+            this.currentPage = 'home';
+            this.currentCategory = null;
+            // 恢复首页滚动位置
+            this.$nextTick(() => {
+                window.scrollTo(0, this.scrollPositions.home);
+            });
         },
 
-        parentClick() {
-            alert('parentClick')
+        // 从详情页返回分类页
+        backToCategory() {
+            this.currentPage = 'category';
+            this.currentComponentInfo = null;
+            // 恢复分类页滚动位置
+            this.$nextTick(() => {
+                window.scrollTo(0, this.scrollPositions.category);
+            });
         }
     }
 }
@@ -288,164 +195,42 @@ export default {
 
 <template>
     <div id="app">
-        <!-- 索引页面 -->
-        <div v-if="!currentComponent" class="index-page">
+        <!-- 首页 - 显示所有分类 -->
+        <div v-if="currentPage === 'home'" class="index-page">
             <header class="header">
                 <h1>Vue.js 功能测试合集</h1>
-                <p>点击下方按钮体验不同的 Vue.js 功能和特性</p>
+                <p>点击下方分类卡片查看相关组件</p>
             </header>
 
             <main class="main-content">
-                <div v-for="category in componentCategories" :key="category.title" class="category-section">
-                    <h2 class="category-title">{{ category.title }}</h2>
-                    <div class="component-grid">
-                        <button v-for="item in category.items" :key="item.name" @click="showComponent(item.component)"
-                            class="component-button">
-                            <div class="button-title">{{ item.name }}</div>
-                            <div class="button-desc">{{ item.desc }}</div>
-                        </button>
+                <div class="category-grid">
+                    <div 
+                        v-for="category in componentCategories" 
+                        :key="category.title" 
+                        @click="showCategory(category)"
+                        class="category-card">
+                        <h2 class="card-title">{{ category.title }}</h2>
+                        <p class="card-count">{{ category.items.length }} 个组件</p>
+                        <div class="card-arrow">→</div>
                     </div>
                 </div>
             </main>
         </div>
 
-        <!-- 组件展示页面 -->
-        <div v-else class="component-page">
-            <header class="component-header">
-                <button @click="goHome" class="back-button">← 返回首页</button>
-            </header>
+        <!-- 分类页 - 显示某个分类下的组件列表 -->
+        <CategoryPage 
+            v-else-if="currentPage === 'category'"
+            :category="currentCategory"
+            @go-back="backToHome"
+            @show-component="showComponentDetail"
+        />
 
-            <main class="component-content">
-                <h2 class="component-title">{{ currentComponent }}</h2>
-                <!-- Vue 基础概念 -->
-                <AppCounter v-if="currentComponent === 'AppCounter'" />
-                <TestCompositionApi v-if="currentComponent === 'TestCompositionApi'" />
-                <TestOptionApi v-if="currentComponent === 'TestOptionApi'" />
-                <ComputeAttribute v-if="currentComponent === 'ComputeAttribute'" />
-                <ClassStyleBind v-if="currentComponent === 'ClassStyleBind'" />
-                <ConditionRender v-if="currentComponent === 'ConditionRender'" />
-                <ListRender v-if="currentComponent === 'ListRender'" />
-                <EventHandle v-if="currentComponent === 'EventHandle'" />
-                <FormInputBind v-if="currentComponent === 'FormInputBind'" />
-                <LifeCycle v-if="currentComponent === 'LifeCycle'" />
-                <Watcher v-if="currentComponent === 'Watcher'" />
-                <TemplateReference v-if="currentComponent === 'TemplateReference'" />
-
-                <!-- 组件基础 -->
-                <ComponentBase v-if="currentComponent === 'ComponentBase'" />
-                <ChildComponentBase v-if="currentComponent === 'ChildComponentBase'" />
-                <AttributeComponent v-if="currentComponent === 'AttributeComponent'" class="btn_class_one"
-                    @click="parentClick" />
-                <AttributeOutComponent v-if="currentComponent === 'AttributeOutComponent'" class="btn_class_one"
-                    @click="parentClick" />
-                <EventCustom v-if="currentComponent === 'EventCustom'" @custom_devent="handleCustomEvent"
-                    @event2="handleEvent2" />
-                <VmodelComponent v-if="currentComponent === 'VmodelComponent'" v-model:model-value="message"
-                    v-model:model-value2="name" />
-
-                <CapitalizeComponent v-if="currentComponent === 'CapitalizeComponent'"
-                    v-model.modelValue.capitalize="myText" />
-                <DynamicComponentTest v-if="currentComponent === 'DynamicComponentTest'" />
-
-                <!-- 插槽 -->
-                <SlotTest v-if="currentComponent === 'SlotTest'">
-                    <span>父组件的 message = {{ message }}</span>
-                    <hr />
-                    <span style="color:red">Click me!</span>
-                    <AppCounter />
-                </SlotTest>
-
-                <AlertBoxSlotTest v-if="currentComponent === 'AlertBoxSlotTest'">
-                    Something bad happened.
-                    <p>Something bad happened.</p>
-                </AlertBoxSlotTest>
-
-                <NamedSlotTest v-if="currentComponent === 'NamedSlotTest'">
-                    <template v-slot:header>
-                        <h1>Here might be a page title</h1>
-                    </template>
-                    <template v-slot:default>
-                        <p>A paragraph for the main content.</p>
-                        <p>And another one.</p>
-                    </template>
-                    <template #footer>
-                        <p>footer Here's some contact info</p>
-                    </template>
-                </NamedSlotTest>
-
-                <ScopedSlotTest v-if="currentComponent === 'ScopedSlotTest'">
-                    <template v-slot:header="headProps">
-                        <h1>插槽出口提供的内容：{{ headProps.text }}</h1>
-                    </template>
-                    <template v-slot:default="slotProps">
-                        <p>{{ slotProps.text }}</p>
-                        <p>{{ slotProps.count }}</p>
-                    </template>
-                    <template v-slot:footer="footProps">
-                        <p>{{ footProps.item.text }}</p>
-                    </template>
-                </ScopedSlotTest>
-
-                <FancyList v-if="currentComponent === 'FancyList'" api-url="url" :per-page="10">
-                    <template #item="{ body, username, likes }">
-                        <div>
-                            <p>{{ body }}</p>
-                            <p class="meta">by {{ username }} | {{ likes }} likes</p>
-                        </div>
-                    </template>
-                </FancyList>
-
-                <!-- 高级功能 -->
-                <div v-if="currentComponent === 'DependencyInjectionChild'">
-                    <DependencyInjectionChild />
-                    <br />
-                    <div class="parenet_bg">
-                       
-                        <span>父组件在输入框修改注入的数据</span>
-                        <input type="text" v-model="reactInjectValue" />
-                    </div>
-                </div>
-
-                <CustomDirectives v-if="currentComponent === 'CustomDirectives'" />
-                <TeleportTest v-if="currentComponent === 'TeleportTest'" />
-                <KeepAliveTest v-if="currentComponent === 'KeepAliveTest'" />
-                <KeepAliveTest2 v-if="currentComponent === 'KeepAliveTest2'" />
-
-                <!-- 动画和过渡 -->
-                <TransitionBase v-if="currentComponent === 'TransitionBase'" />
-                <TransitionTest1_0 v-if="currentComponent === 'TransitionTest1_0'" />
-                <TransitionTest1_1 v-if="currentComponent === 'TransitionTest1_1'" />
-                <TransitionTest1_2 v-if="currentComponent === 'TransitionTest1_2'" />
-                <TransitionTest1_3 v-if="currentComponent === 'TransitionTest1_3'" />
-                <TestUseAnimateCSSLib v-if="currentComponent === 'TestUseAnimateCSSLib'" />
-                <TransitionTest2 v-if="currentComponent === 'TransitionTest2'" />
-                <TransitionTest3 v-if="currentComponent === 'TransitionTest3'" />
-                <TransitionTest4 v-if="currentComponent === 'TransitionTest4'" />
-                <TransitionTest5 v-if="currentComponent === 'TransitionTest5'" />
-                <TransitionGroupTest v-if="currentComponent === 'TransitionGroupTest'" />
-                <TransitionGroupTest2 v-if="currentComponent === 'TransitionGroupTest2'" />
-                <TestUseBothTransitionAndAnimate v-if="currentComponent === 'TestUseBothTransitionAndAnimate'" />
-                <TestJsAnimation v-if="currentComponent === 'TestJsAnimation'" />
-                <TestJsAnimationUseVelocity v-if="currentComponent === 'TestJsAnimationUseVelocity'" />
-
-                <!-- UI 组件库 -->
-                <VantDemo v-if="currentComponent === 'VantDemo'" />
-
-                <!-- CSS 布局演示 -->
-                <FlexLayoutDemo v-if="currentComponent === 'FlexLayoutDemo'" />
-                <FlexScalingAdvanced v-if="currentComponent === 'FlexScalingAdvanced'" />
-
-                <!-- 路由和状态管理 -->
-                <SimpleRouterTest v-if="currentComponent === 'SimpleRouterTest'" />
-                <ComponentStateManage v-if="currentComponent === 'ComponentStateManage'" />
-                <EventBusParent v-if="currentComponent === 'EventBusParent'" />
-
-                <!-- 其他测试 -->
-                <TbodyComponent v-if="currentComponent === 'TbodyComponent'" />
-                <TestLayout v-if="currentComponent === 'TestLayout'" />
-                <TestLayout2 v-if="currentComponent === 'TestLayout2'" />
-            </main>
-        </div>
+        <!-- 组件详情页 -->
+        <ComponentDetail
+            v-else-if="currentPage === 'detail'"
+            :componentInfo="currentComponentInfo"
+            @go-back="backToCategory"
+        />
 
         <!-- Teleport 容器 -->
         <div id="body"></div>
@@ -471,14 +256,7 @@ export default {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-.parenet_bg {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* 索引页面样式 */
+/* 首页样式 */
 .index-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -509,32 +287,18 @@ export default {
     color: #666;
 }
 
-/* 分类区域样式 */
-.category-section {
-    margin-bottom: 40px;
-}
-
-.category-title {
-    font-size: 1.8em;
-    color: #35495e;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    border-left: 4px solid #42b883;
-}
-
-.component-grid {
+/* 分类网格布局 */
+.category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
 }
 
-/* 组件按钮样式 */
-.component-button {
+/* 分类卡片样式 */
+.category-card {
     background: white;
-    border: none;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: left;
+    border-radius: 15px;
+    padding: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -542,7 +306,7 @@ export default {
     overflow: hidden;
 }
 
-.component-button::before {
+.category-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -553,94 +317,38 @@ export default {
     transition: left 0.5s;
 }
 
-.component-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.component-button:hover::before {
+.category-card:hover::before {
     left: 100%;
 }
 
-.button-title {
-    font-size: 1.1em;
-    font-weight: bold;
+.card-title {
+    font-size: 1.5em;
     color: #2c3e50;
-    margin-bottom: 8px;
-}
-
-.button-desc {
-    font-size: 0.9em;
-    color: #666;
-    line-height: 1.4;
-}
-
-/* 组件页面样式 */
-.component-page {
-    min-height: 100vh;
-}
-
-.component-header {
-    background: white;
-    padding: 24px;
-    min-height: 64px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.back-button {
-    background: #42b883;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    min-width: 120px;
-}
-
-.back-button:hover {
-    background: #369970;
-    transform: translateY(-1px);
-}
-
-.component-title {
-    font-size: 2em;
-    color: #2c3e50;
-    margin: 0 0 25px 0;
-    text-align: left;
-    word-break: break-word;
-    line-height: 1.3;
+    margin-bottom: 12px;
     font-weight: 600;
-    border-bottom: 2px solid #42b883;
-    padding-bottom: 15px;
 }
 
-.component-content {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 16px auto 0;
-    background: white;
-    min-height: calc(100vh - 80px);
-    border-radius: 15px 15px 0 0;
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* 原有样式保持 */
-.btn_class_one {
-    background-color: royalblue;
-}
-
-.meta {
-    font-size: 0.8em;
+.card-count {
+    font-size: 1em;
     color: #42b883;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.card-arrow {
+    font-size: 2em;
+    color: #42b883;
+    text-align: right;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .card-arrow {
+    transform: translateX(8px);
 }
 
 /* 响应式设计 */
@@ -649,32 +357,16 @@ export default {
         font-size: 2em;
     }
 
-    .component-grid {
+    .category-grid {
         grid-template-columns: 1fr;
     }
 
-    .component-header {
-        padding: 16px 15px;
+    .category-card {
+        padding: 24px;
     }
 
-    .component-title {
-        font-size: 1.7em;
-        margin-bottom: 20px;
-        padding-bottom: 12px;
-    }
-
-    .back-button {
-        font-size: 13px;
-        padding: 8px 16px;
-        min-width: 100px;
-    }
-
-    .component-content {
-        padding: 15px;
-    }
-
-    .category-title {
-        font-size: 1.5em;
+    .card-title {
+        font-size: 1.3em;
     }
 }
 
@@ -691,24 +383,12 @@ export default {
         font-size: 1.8em;
     }
 
-    .component-button {
-        padding: 15px;
+    .category-card {
+        padding: 20px;
     }
 
-    .component-header {
-        padding: 14px 12px;
-    }
-
-    .component-title {
-        font-size: 1.4em;
-        margin-bottom: 18px;
-        padding-bottom: 10px;
-    }
-
-    .back-button {
-        font-size: 12px;
-        padding: 8px 12px;
-        min-width: 80px;
+    .card-title {
+        font-size: 1.2em;
     }
 }
 </style>
