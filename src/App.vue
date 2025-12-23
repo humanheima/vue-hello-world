@@ -3,6 +3,8 @@ import { myInjectionKey } from './components/key.js';
 import { computed } from 'vue';
 import CategoryPage from './components/CategoryPage.vue';
 import ComponentDetail from './components/ComponentDetail.vue';
+import VuexTestPage from './components/VuexTestPage.vue';
+import ComparisonPage from './components/ComparisonPage.vue';
 
 export default {
     name: 'App',
@@ -120,6 +122,8 @@ export default {
                     items: [
                         { name: 'SimpleRouterTest', component: 'SimpleRouterTest', desc: '简单路由' },
                         { name: 'ComponentStateManage', component: 'ComponentStateManage', desc: '状态管理' },
+                        { name: 'VuexTestPage', component: 'VuexTestPage', desc: 'Vuex mapState 示例' },
+                        { name: 'ComparisonPage', component: 'ComparisonPage', desc: 'mapState 对比演示' },
                         { name: 'EventBusParent', component: 'EventBusParent', desc: '事件总线' },
                     ]
                 },
@@ -146,7 +150,9 @@ export default {
 
     components: {
         CategoryPage,
-        ComponentDetail
+        ComponentDetail,
+        VuexTestPage,
+        ComparisonPage
     },
 
     methods: {

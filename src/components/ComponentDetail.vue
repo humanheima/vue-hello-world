@@ -131,6 +131,8 @@
             <!-- 路由和状态管理 -->
             <SimpleRouterTest v-if="componentInfo.component === 'SimpleRouterTest'" />
             <ComponentStateManage v-if="componentInfo.component === 'ComponentStateManage'" />
+            <VuexTestPage v-if="componentInfo.component === 'VuexTestPage'" @go-back="goBack" />
+            <ComparisonPage v-if="componentInfo.component === 'ComparisonPage'" @go-back="goBack" />
             <EventBusParent v-if="componentInfo.component === 'EventBusParent'" />
 
             <!-- 其他测试 -->
@@ -186,6 +188,8 @@ import KeepAliveTest2 from './keep_alive/KeepAliveTest2.vue';
 import TeleportTest from './TeleportTest.vue';
 import SimpleRouterTest from './router/SimpleRouterTest.vue';
 import ComponentStateManage from './state_manage/ComponentStatusManage.vue';
+import VuexTestPage from './VuexTestPage.vue';
+import ComparisonPage from './ComparisonPage.vue';
 import TbodyComponent from './module/TbodyComponent.vue';
 import EventBusParent from './module/eventbus_test/EventBusParent.vue';
 import TestLayout from './TestLayout.vue';
@@ -263,6 +267,8 @@ export default {
         TeleportTest,
         SimpleRouterTest,
         ComponentStateManage,
+        VuexTestPage,
+        ComparisonPage,
         TbodyComponent,
         EventBusParent,
         TestLayout,
