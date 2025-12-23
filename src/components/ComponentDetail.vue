@@ -125,6 +125,8 @@
             <!-- CSS 布局演示 -->
             <FlexLayoutDemo v-if="componentInfo.component === 'FlexLayoutDemo'" />
             <FlexScalingAdvanced v-if="componentInfo.component === 'FlexScalingAdvanced'" />
+            <RemDemo v-if="componentInfo.component === 'RemDemo'" />
+            <RemAdvancedDemo v-if="componentInfo.component === 'RemAdvancedDemo'" />
 
             <!-- 路由和状态管理 -->
             <SimpleRouterTest v-if="componentInfo.component === 'SimpleRouterTest'" />
@@ -194,6 +196,8 @@ import TestJsAnimationUseVelocity from './test_animation/TestJsAnimationUseVeloc
 import VantDemo from './VantDemo.vue';
 import FlexLayoutDemo from './FlexLayoutDemo.vue';
 import FlexScalingAdvanced from './FlexScalingAdvanced.vue';
+import RemDemo from './RemDemo.vue';
+import RemAdvancedDemo from './RemAdvancedDemo.vue';
 import VueDirectivesGuide from './VueDirectivesGuide.vue';
 import EventMechanismGuide from './EventMechanismGuide.vue';
 
@@ -269,6 +273,8 @@ export default {
         VantDemo,
         FlexLayoutDemo,
         FlexScalingAdvanced,
+        RemDemo,
+        RemAdvancedDemo,
         VueDirectivesGuide,
         EventMechanismGuide,
     },

@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { initRemAdaptation } from './config/rem-config.js'
 
+// 初始化 REM 适配
+initRemAdaptation()
 
 const app = createApp(App)
 

@@ -111,6 +111,8 @@ export default {
                     items: [
                         { name: 'FlexLayoutDemo', component: 'FlexLayoutDemo', desc: 'Flex 弹性布局完整演示' },
                         { name: 'FlexScalingAdvanced', component: 'FlexScalingAdvanced', desc: 'Flex 缩放比例深度解析' },
+                        { name: 'RemDemo', component: 'RemDemo', desc: 'REM 单位基础演示' },
+                        { name: 'RemAdvancedDemo', component: 'RemAdvancedDemo', desc: 'REM 单位高级应用' },
                     ]
                 },
                 {
