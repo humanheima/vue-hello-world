@@ -106,6 +106,7 @@ export default {
                     title: 'UI 组件库',
                     items: [
                         { name: 'VantDemo', component: 'VantDemo', desc: 'Vant 移动端组件库演示' },
+                        { name: 'VantDemo2', component: 'VantDemo2', desc: 'Vant 图片预览功能演示' },
                     ]
                 },
                 {
