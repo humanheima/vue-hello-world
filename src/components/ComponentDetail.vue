@@ -122,6 +122,7 @@
             <!-- UI 组件库 -->
             <VantDemo v-if="componentInfo.component === 'VantDemo'" />
             <VantDemo2 v-if="componentInfo.component === 'VantDemo2'" @go-back="goBack" />
+            <WindiDemo v-if="componentInfo.component === 'WindiDemo'" />
 
             <!-- CSS 布局演示 -->
             <FlexLayoutDemo v-if="componentInfo.component === 'FlexLayoutDemo'" />
@@ -200,6 +201,7 @@ import TestJsAnimation from './test_animation/TestJsAnimation.vue';
 import TestJsAnimationUseVelocity from './test_animation/TestJsAnimationUseVelocity.vue';
 import VantDemo from './VantDemo.vue';
 import VantDemo2 from './VantDemo2.vue';
+import WindiDemo from './WindiDemo.vue';
 import FlexLayoutDemo from './FlexLayoutDemo.vue';
 import FlexScalingAdvanced from './FlexScalingAdvanced.vue';
 import RemDemo from './RemDemo.vue';
@@ -280,6 +282,7 @@ export default {
         TestJsAnimationUseVelocity,
         VantDemo,
         VantDemo2,
+        WindiDemo,
         FlexLayoutDemo,
         FlexScalingAdvanced,
         RemDemo,
