@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { initRemAdaptation } from './config/rem-config.js'
 import store from './store/index.js'
+import 'windi.css'
 
 // 初始化 REM 适配
 initRemAdaptation()
