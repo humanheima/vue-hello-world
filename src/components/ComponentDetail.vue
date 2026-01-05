@@ -137,6 +137,10 @@
             <ComparisonPage v-if="componentInfo.component === 'ComparisonPage'" @go-back="goBack" />
             <EventBusParent v-if="componentInfo.component === 'EventBusParent'" />
 
+            <!-- 嵌套滑动演示 -->
+            <NestedScrollDemo v-if="componentInfo.component === 'NestedScrollDemo'" />
+            <AdvancedNestedScroll v-if="componentInfo.component === 'AdvancedNestedScroll'" />
+
             <!-- 其他测试 -->
             <TbodyComponent v-if="componentInfo.component === 'TbodyComponent'" />
             <TestLayout v-if="componentInfo.component === 'TestLayout'" />
@@ -208,6 +212,8 @@ import RemDemo from './RemDemo.vue';
 import RemAdvancedDemo from './RemAdvancedDemo.vue';
 import VueDirectivesGuide from './VueDirectivesGuide.vue';
 import EventMechanismGuide from './EventMechanismGuide.vue';
+import NestedScrollDemo from './NestedScrollDemo.vue';
+import AdvancedNestedScroll from './AdvancedNestedScroll.vue';
 
 export default {
     name: 'ComponentDetail',
@@ -289,6 +295,8 @@ export default {
         RemAdvancedDemo,
         VueDirectivesGuide,
         EventMechanismGuide,
+        NestedScrollDemo,
+        AdvancedNestedScroll,
     },
     methods: {
         goBack() {

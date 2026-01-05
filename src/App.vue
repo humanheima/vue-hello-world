@@ -130,6 +130,13 @@ export default {
                     ]
                 },
                 {
+                    title: '嵌套滑动演示',
+                    items: [
+                        { name: 'NestedScrollDemo', component: 'NestedScrollDemo', desc: '基础嵌套滑动演示' },
+                        { name: 'AdvancedNestedScroll', component: 'AdvancedNestedScroll', desc: '高级嵌套滑动演示' },
+                    ]
+                },
+                {
                     title: '其他测试',
                     items: [
                         { name: 'TbodyComponent', component: 'TbodyComponent', desc: '表格组件' },
