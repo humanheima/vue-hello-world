@@ -22,7 +22,7 @@ export default defineConfig({
       // 自定义字体
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-      }
+      },
     }
   },
   
@@ -31,6 +31,7 @@ export default defineConfig({
     'btn': 'py-2 px-4 font-semibold rounded-lg shadow-md',
     'btn-blue': 'text-white bg-blue-500 hover:bg-blue-700',
     'btn-green': 'text-white bg-green-500 hover:bg-green-700',
+    'btn-primary2': 'bg-[#42b983] text-white px-4 py-2 rounded',
   },
   
   // 插件

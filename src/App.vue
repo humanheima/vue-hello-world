@@ -215,14 +215,14 @@ export default {
 <template>
     <div id="app">
         <!-- 首页 - 显示所有分类 -->
-        <div v-if="currentPage === 'home'" class="index-page">
+        <div v-if="currentPage === 'home'" class="max-w-[1600px] mx-auto p-5">
             <header class="header">
                 <h1>Vue.js 功能测试合集</h1>
-                <p>点击下方分类卡片查看相关组件</p>
+                <p class="text-[1.1rem] text-blue-500" >点击下方分类卡片查看相关组件</p>
             </header>
 
-            <main class="main-content">
-                <div class="category-grid">
+            <main>
+                <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
                     <div 
                         v-for="category in componentCategories" 
                         :key="category.title" 
@@ -275,13 +275,6 @@ export default {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-/* 首页样式 */
-.index-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
 .header {
     text-align: center;
     margin-bottom: 40px;
@@ -299,18 +292,6 @@ export default {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-.header p {
-    font-size: 1.1em;
-    color: #666;
-}
-
-/* 分类网格布局 */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
 }
 
 /* 分类卡片样式 */
@@ -332,7 +313,7 @@ export default {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(66, 184, 131, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(235, 54, 14, 0.5), transparent);
     transition: left 0.5s;
 }
 
@@ -359,6 +340,9 @@ export default {
     font-weight: 500;
 }
 
+/* 下面这两个 card-arrow 和 .category-card:hover .card-arrow 配合实现
+鼠标悬浮时，箭头会在 0.3 秒内平滑地向右移动 8px，鼠标移开时又会平滑地回到原位，动画更自然。
+ */
 .card-arrow {
     font-size: 2em;
     color: #42b883;
@@ -370,44 +354,6 @@ export default {
     transform: translateX(8px);
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2em;
-    }
 
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .category-card {
-        padding: 24px;
-    }
-
-    .card-title {
-        font-size: 1.3em;
-    }
-}
-
-@media (max-width: 480px) {
-    .index-page {
-        padding: 10px;
-    }
-
-    .header {
-        padding: 20px 15px;
-    }
-
-    .header h1 {
-        font-size: 1.8em;
-    }
-
-    .category-card {
-        padding: 20px;
-    }
-
-    .card-title {
-        font-size: 1.2em;
-    }
-}
 </style>
