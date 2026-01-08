@@ -61,7 +61,7 @@ export default {
 </script>
 
 <template>
-    <div class="bg">
+    <div class="bg rounded-lg p-2.5">
         <p> title: {{ title }} , content: {{ content }} , likes: {{ likes }}</p>
         <p>propE: {{ propE.message }}</p>
         <p>propF: {{ propF }}</p>
@@ -73,7 +73,6 @@ export default {
 .bg {
     background-color: #f0f8ff;
     padding: 10px;
-    border-radius: 4px;
 }
 
 </style>

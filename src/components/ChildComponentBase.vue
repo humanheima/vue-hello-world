@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="bg">
+    <div class="bg rounded-lg p-4">
         <h2>我是子组件</h2>
         <p>{{ message }}</p>
         <p>{{ count }}</p>

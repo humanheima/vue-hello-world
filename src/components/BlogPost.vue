@@ -18,7 +18,7 @@ export default {
             required: true,
         },
     },
-    emits: ['enlarge-text','mini-text'],
+    emits: ['enlarge-text', 'mini-text'],
 
 }
 </script>
@@ -27,10 +27,11 @@ export default {
     <div class="bg">
         <h4>父组件传递的title {{ title }}</h4>
         <p>父组件传递的content {{ content }}</p>
-        <button @click="$emit('enlarge-text',0.1)"> Enlarge text</button>
-        <button @click="$emit('mini-text',0.2)"> Mini text</button>
+        <button class="bg-gray-300 rounded-sm px-1 py-1 mr-2 m-1 " @click="$emit('enlarge-text', 0.1)"> Enlarge
+            text</button>
+        <button class="bg-gray-300 rounded-sm px-1 py-1 m-1" @click="$emit('mini-text', 0.2)"> Mini text</button>
     </div>
-     <hr class="styled-hr">
+    <hr class="styled-hr">
 </template>
 
 <style scoped>
@@ -38,6 +39,7 @@ export default {
     background-color: gray;
     padding: 10px;
 }
+
 .styled-hr {
     border: none;
     height: 1px;
@@ -45,4 +47,3 @@ export default {
     margin: 16px 0;
 }
 </style>
-
