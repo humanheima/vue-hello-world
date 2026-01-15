@@ -108,6 +108,7 @@ export default {
                         { name: 'VantDemo', component: 'VantDemo', desc: 'Vant 移动端组件库演示' },
                         { name: 'VantDemo2', component: 'VantDemo2', desc: 'Vant 图片预览功能演示' },
                         { name: 'WindiDemo', component: 'WindiDemo', desc: 'Windi CSS 原子化样式演示' },
+                        { name: 'DailyBondPage', component: 'DailyBondPage', desc: '每日羁绊页面 - 基于 Figma 设计实现' },
                     ]
                 },
                 {
